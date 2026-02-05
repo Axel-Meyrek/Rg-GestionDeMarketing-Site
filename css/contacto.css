@@ -1,0 +1,176 @@
+/* CONTACTO PAGE */
+
+.contacto-header {
+    text-align: center;
+    padding: 2rem 5% 3rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contacto-header h1 {
+    font-family: var(--fontTitle);
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.contacto-header p {
+    color: var(--textGray);
+    font-size: 1.1rem;
+}
+
+/* SECCIÓN FORMULARIO + INFO */
+.contacto-form-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5% 5rem;
+    align-items: start;
+}
+
+/* FORMULARIO */
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--textGray);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: var(--colorCard);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    color: var(--textWhite);
+    font-family: var(--fontParagraph);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--colorEnfasis);
+    box-shadow: 0 0 0 3px rgba(246, 207, 61, 0.15);
+}
+
+.form-group select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23b3b3b3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.form-group select option {
+    background-color: var(--colorCard);
+    color: var(--textWhite);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    align-self: flex-start;
+    font-size: 1rem;
+    padding: 14px 40px;
+}
+
+/* INFO DE CONTACTO */
+.contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background-color: var(--colorCard);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: var(--colorEnfasis);
+    transform: translateY(-3px);
+}
+
+.info-card i {
+    font-size: 1.5rem;
+    color: var(--colorEnfasis);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.info-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--textWhite);
+}
+
+.info-card p {
+    font-size: 0.95rem;
+    color: var(--textGray);
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contacto-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .contacto-form-section {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .contacto-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .btn-submit {
+        align-self: stretch;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto-info {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- METADATOS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/contacto.css">
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    <script src="./js/particles.js" defer></script>
+    <!-- GENERAL -->
+    <title>Contacto | RG Agencia de Marketing</title>
+</head>
+<body>
+    <!-- PARTICLES -->
+    <div id="particles-js"></div>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="nav">
+        <div class="containerLogo">
+            <a href="./index.html">
+                <img class="nav_logo" src="./img/logoRG.png" alt="Logo RG Agencia de Marketing">
+            </a>
+        </div>
+        <button class="nav_buttonMenu" id="menuBtn">
+            <svg class="nav_buttonMenuSVG"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="circular_reveal_menu" id="menuOverlay">
+            <ul class="menu_items">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="./simulador-servicios.html">Simulador IA</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+        <!-- ENCABEZADO -->
+        <section class="contacto-header">
+            <h1>Hablemos de tu <span class="highlight">proyecto</span></h1>
+            <p>Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section class="contacto-form-section">
+            <form class="contacto-form" id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electr&oacute;nico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Tel&eacute;fono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+52 000 000 0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="servicio">Servicio de inter&eacute;s</label>
+                    <select id="servicio" name="servicio">
+                        <option value="" disabled selected>Selecciona un servicio</option>
+                        <option value="estrategia">Estrategia de Marketing 360&deg;</option>
+                        <option value="redes">Gesti&oacute;n de Redes Sociales</option>
+                        <option value="publicidad">Publicidad Digital &amp; Performance</option>
+                        <option value="branding">Branding &amp; Dise&ntilde;o</option>
+                        <option value="web">Dise&ntilde;o Web</option>
+                        <option value="investigacion">Investigaci&oacute;n de Mercados</option>
+                        <option value="cursos">Cursos y Capacitaci&oacute;n</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cu&eacute;ntanos sobre tu proyecto..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Enviar mensaje</button>
+            </form>
+
+            <!-- INFO DE CONTACTO -->
+            <div class="contacto-info">
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>contacto@rgmarketing.com</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Tel&eacute;fono</h3>
+                    <p>+52 222 446 7947</p>
+                </div>
+                <div class="info-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Redes Sociales</h3>
+                    <p>@rgmarketing</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand">
+                <img src="./img/logoRG.png" alt="Logo RG" class="footer-brand-logo">
+                <p>Somos una agencia especializada en gestión de marcas. Transformamos negocios a través de estrategias de marketing integrales, diseño y comunicación efectiva.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="./simulador-servicios.html">Simulador IA</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="./contacto.html">Investigación de Mercados</a></li>
+                    <li><a href="./contacto.html">Naming, Diseño y Producción</a></li>
+                    <li><a href="./contacto.html">Diseño Web</a></li>
+                    <li><a href="./contacto.html">Gestión de Redes Sociales</a></li>
+                    <li><a href="./contacto.html">Cursos y Capacitación</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contacto@rgmarketing.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+52 222 446 7947</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RG Gestión de Marcas. Todos los derechos reservados.</p>
+            <p class="footer-credit">Diseñado y desarrollado por <a href="https://www.instagram.com/axel_meyrek" target="_blank" rel="noopener noreferrer">Axel Meyrek</a></p>
+            <a href="./contacto.html">Política de privacidad</a>
+        </div>
+    </footer>
+
+    <!-- Script del menú -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuBtn.addEventListener('click', () => {
+            menuOverlay.classList.toggle('active');
+            menuBtn.classList.toggle('is-active');
+        });
+    </script>
+</body>
+</html>

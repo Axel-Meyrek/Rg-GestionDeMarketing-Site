@@ -1,11 +1,9 @@
 console.log("Hola Mundo");
 
-function handleClick(servicio) {
-    const box = document.getElementById('message-box');
-    box.innerText = `Accediendo a: ${servicio}`;
-    box.style.display = 'block';
-    setTimeout(() => { box.style.display = 'none'; }, 3000);
-}
+/* VARIABLES Y COMPONENTES */
+const groups = document.querySelectorAll('.sphere-group');
+let currentIndex = 0;
+let isPaused = false;
 
 // --- LÓGICA DE RESALTADO AUTOMÁTICO ---
 
@@ -32,11 +30,6 @@ svgElement.addEventListener('mouseleave', () => {
 });
 
 
-/* VARIABLES Y COMPONENTES */
-const groups = document.querySelectorAll('.sphere-group');
-let currentIndex = 0;
-let isPaused = false;
-
 /* FUNCIONES */
 
 
@@ -55,19 +48,15 @@ menuBtn.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', function() {
             // Configuración del observador
             const observerOptions = {
-                threshold: 0.15, // El elemento se activa cuando el 15% es visible
-                rootMargin: "0px 0px -50px 0px" // Un pequeño margen para suavizar la entrada
+                threshold: 0.1,
+                rootMargin: "0px"
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Opcional: Dejar de observar si solo quieres que se anime una vez
-                        // observer.unobserve(entry.target); 
-                    } else {
-                        // Si quieres que se vuelva a animar al subir y bajar, descomenta esto:
-                        // entry.target.classList.remove('active'); 
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -95,15 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Diccionario: Nombre SVG -> ID Sección HTML
         const sectionMap = {
-            'Páginas web': 'sec-web',
-            'Campañas y activaciones': 'sec-campanas',
-            'Estrategia Digital': 'sec-estrategia',
-            'Branding': 'sec-branding',
             'Investigación de mercados': 'sec-investigacion',
-            // Mapeamos los faltantes al genérico
-            'Cursos': 'sec-generic',
-            'Redes sociales': 'sec-generic',
-            'Conceptualización gráfica': 'sec-generic'
+            'Naming, diseño y producción': 'sec-branding',
+            'Diseño Web': 'sec-web',
+            'Gestión de redes sociales': 'sec-redes',
+            'Cursos y capacitación': 'sec-cursos'
         };
 
         function handleClick(sectionName) {
@@ -115,11 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!nextScreen) {
                 console.error("No se encontró sección para:", sectionName);
                 return;
-            }
-
-            // Si es la genérica, actualizamos el título dinámicamente
-            if (targetId === 'sec-generic') {
-                document.getElementById('generic-title').innerText = sectionName;
             }
 
             runTransition(homeScreen, nextScreen, 'forward');
@@ -164,3 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 isAnimating = false;
             }, 600);
         }
+
+        // Fallback: forzar activación de secciones reveal tras 5 segundos
+        setTimeout(() => {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+                if (!el.classList.contains('active')) {
+                    el.classList.add('active');
+                }
+            });
+        }, 5000);

@@ -4,12 +4,34 @@
     <!-- METADATOS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>RG - GESTION DE MARCAS</title>
+    <meta name="title" content="RG - GESTION DE MARCAS" />
+    <meta name="description" content="Somos una agencia especializada en gestión de marcas. Transformamos negocios a través de estrategias de marketing integrales, diseño y comunicación efectiva." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io/" />
+    <meta property="og:title" content="RG - GESTION DE MARCAS" />
+    <meta property="og:description" content="Somos una agencia especializada en gestión de marcas. Transformamos negocios a través de estrategias de marketing integrales, diseño y comunicación efectiva." />
+    <meta property="og:image" content="./img/cover.webp" />
+
+    <!-- X (Twitter) -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta property="twitter:title" content="RG - GESTION DE MARCAS" />
+    <meta property="twitter:description" content="Somos una agencia especializada en gestión de marcas. Transformamos negocios a través de estrategias de marketing integrales, diseño y comunicación efectiva." />
+    <meta property="twitter:image" content="./img/cover.webp" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
     <!-- STYLES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/index.css">
     <!-- FUENTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/nosotros.css">
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
     <script src="./js/particles.js" defer></script>
@@ -41,9 +63,10 @@
         </button>
         <div class="circular_reveal_menu" id="menuOverlay">
             <ul class="menu_items">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Perfil</a></li>
-                <li><a href="#">Ajustes</a></li>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="./simulador-servicios.html">Simulador IA</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -59,303 +82,260 @@
                 <path class="hero_logoPath" d="M1082.75 892.054H1142.5C1158.5 1088.55 983.5 1198.55 824.5 1147.05C874.748 1238.25 898.817 1284.53 965 1394.55C1055.23 1544.55 1432 1260.05 1442 965.554L1443 658.054H1103C1087.24 706.639 1073.64 732.481 1042.5 776.554C1001 823.054 1029 885.054 1082.75 892.054Z" />
                 
                 <g id="spheres-container">
-                    <!-- PUNTO AJUSTADO: Cursos (Movido un poco más abajo) -->
-                    <g class="sphere-group" onclick="handleClick('Cursos')">
-                        <rect x="290" y="45" width="120" height="48" rx="24" class="label-bg" />
-                        <circle cx="280" cy="70" r="14" class="interactive-sphere" />
-                        <text x="310" y="78" class="sphere-label">Cursos</text>
-                    </g>
-
+                    <!-- 1. Investigación de mercados — top, touching path 1 horizontal line -->
                     <g class="sphere-group" onclick="handleClick('Investigación de mercados')">
-                        <rect x="830" y="225" width="340" height="48" rx="24" class="label-bg" />
-                        <circle cx="820" cy="250" r="14" class="interactive-sphere" />
-                        <text x="850" y="258" class="sphere-label">Investigación de mercados</text>
+                        <rect x="740" y="32" width="350" height="48" rx="24" class="label-bg" />
+                        <circle cx="690" cy="45" r="14" class="interactive-sphere" />
+                        <text x="750" y="65" class="sphere-label">Investigación de mercados</text>
                     </g>
 
-                    <g class="sphere-group" onclick="handleClick('Conceptualización gráfica')">
-                        <rect x="690" y="825" width="330" height="48" rx="24" class="label-bg" />
-                        <circle cx="680" cy="850" r="14" class="interactive-sphere" />
-                        <text x="710" y="858" class="sphere-label">Conceptualización gráfica</text>
+                    <!-- 2. Naming, diseño y producción — right-upper, touching path 2 -->
+                    <g class="sphere-group" onclick="handleClick('Naming, diseño y producción')">
+                        <rect x="915" y="230" width="390" height="48" rx="24" class="label-bg" />
+                        <circle cx="895" cy="295" r="14" class="interactive-sphere" />
+                        <text x="930" y="260" class="sphere-label">Naming, diseño y producción</text>
                     </g>
 
-                    <g class="sphere-group" onclick="handleClick('Campañas y activaciones')">
-                        <rect x="375" y="623" width="320" height="48" rx="24" class="label-bg" />
-                        <circle cx="364" cy="648" r="14" class="interactive-sphere" />
-                        <text x="395" y="656" class="sphere-label">Campañas y activaciones</text>
+                    <!-- 3. Diseño Web — right-middle, touching path 3 right edge -->
+                    <g class="sphere-group" onclick="handleClick('Diseño Web')">
+                        <rect x="1230" y="688" width="175" height="48" rx="24" class="label-bg right-aligned" />
+                        <circle cx="1443" cy="658" r="14" class="interactive-sphere" />
+                        <text x="1393" y="720" class="sphere-label" text-anchor="end">Diseño Web</text>
                     </g>
 
-                    <g class="sphere-group" onclick="handleClick('Páginas web')">
-                        <rect x="860" y="55" width="180" height="48" rx="24" class="label-bg" />
-                        <circle cx="850" cy="80" r="14" class="interactive-sphere" />
-                        <text x="880" y="88" class="sphere-label">Páginas web</text>
+                    <!-- 4. Gestión de redes sociales — left-middle, touching path 1 curve -->
+                    <g class="sphere-group" onclick="handleClick('Gestión de redes sociales')">
+                        <rect x="375" y="655" width="345" height="48" rx="24" class="label-bg" />
+                        <circle cx="360" cy="650" r="14" class="interactive-sphere" />
+                        <text x="395" y="690" class="sphere-label">Gestión de redes sociales</text>
                     </g>
 
-                    <g class="sphere-group" onclick="handleClick('Redes sociales')">
-                        <rect x="1110" y="355" width="200" height="48" rx="24" class="label-bg" />
-                        <circle cx="1100" cy="380" r="14" class="interactive-sphere" />
-                        <text x="1130" y="388" class="sphere-label">Redes sociales</text>
+                    <!-- 5. Cursos y capacitación — bottom, touching path 3 lower area -->
+                    <g class="sphere-group" onclick="handleClick('Cursos y capacitación')">
+                        <rect x="1093" y="818" width="300" height="48" rx="24" class="label-bg" />
+                        <circle cx="1150" cy="900" r="14" class="interactive-sphere" />
+                        <text x="1100" y="850" class="sphere-label">Cursos y capacitación</text>
                     </g>
 
-                    <g class="sphere-group" onclick="handleClick('Branding')">
-                        <rect x="1180" y="725" width="160" height="48" rx="24" class="label-bg right-aligned" />
-                        <circle cx="1380" cy="750" r="14" class="interactive-sphere" />
-                        <text x="1330" y="758" class="sphere-label" text-anchor="end">Branding</text>
-                    </g>
-
-                    <g class="sphere-group" onclick="handleClick('Estrategia Digital')">
-                        <rect x="1110" y="1125" width="230" height="48" rx="24" class="label-bg" />
-                        <circle cx="1100" cy="1150" r="14" class="interactive-sphere" />
-                        <text x="1130" y="1158" class="sphere-label">Estrategia Digital</text>
-                    </g>
+                    <!-- 6. Simulador IA — bottom-left, link to simulador-servicios.html -->
+                    <a href="./simulador-servicios.html">
+                        <g class="sphere-group">
+                            <rect x="280" y="63" width="210" height="48" rx="24" class="label-bg" />
+                            <circle cx="300" cy="35" r="14" class="interactive-sphere" />
+                            <text x="300" y="93" class="sphere-label">Simulador IA</text>
+                        </g>
+                    </a>
                 </g>
             </svg>
         </section>
 
         <!-- === DESCANSO VISUAL 1 === -->
         <section class="quote-break reveal">
-            <h2>"El marketing ya no se trata de las cosas que vendes, sino de las historias que cuentas."</h2>
-            <span>Seth Godin</span>
+            <h2>"Estrategias que inspiran."</h2>
+            <span>RG GESTION DE MARCAS</span>
         </section>
 
 
+        <section class="nosotros-elementos">
+            <h2>Elementos clave que generamos en RG </h2>
 
-        <!-- === SERVICIO 1: ESTRATEGIA === -->
-        <div class="container">
-            <section class="service-section">
-                <!-- Imagen -->
-                <div class="service-image reveal-left">
-                    <span class="service-number">01</span>
-                    <!-- Usando SVG placeholder actualizado al nuevo color -->
-                    <svg viewBox="0 0 800 600" width="100%" height="auto" style="background:#1e1e1e; border-radius:12px;">
-                        <rect width="800" height="600" fill="#1e1e1e"/>
-                        <circle cx="400" cy="300" r="100" fill="#f4a71c" opacity="0.3"/>
-                        <path d="M200 450 L300 350 L400 400 L600 200" stroke="#ffffff" stroke-width="10" fill="none"/>
-                        <circle cx="300" cy="350" r="8" fill="#f4a71c"/>
-                        <circle cx="400" cy="400" r="8" fill="#f4a71c"/>
-                        <circle cx="600" cy="200" r="8" fill="#f4a71c"/>
-                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#888" font-size="24" font-family="sans-serif" dy="120">Imagen: Estrategia Digital</text>
-                    </svg>
+            <div class="elementos-grid">
+                <!-- Identidad Corporativa -->
+                <div class="elemento-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Identidad Corporativa</h3>
+                    <p>Crear un logo, paleta de colores, tipograf&iacute;a, imagen y tono de voz &uacute;nicos y congruentes.</p>
                 </div>
-                
-                <!-- Texto -->
-                <div class="service-content reveal-right">
-                    <h2>Estrategia de <span class="highlight">Marketing 360°</span></h2>
-                    <p>
-                        No lanzamos flechas al aire; trazamos mapas. Analizamos tu mercado, tu competencia y tus objetivos para construir una hoja de ruta sólida. Cada acción está calculada para maximizar tu retorno de inversión (ROI) y posicionar tu marca donde realmente importa.
-                    </p>
-                    <p>
-                        Desde la identidad de marca hasta la conversión final, orquestamos cada punto de contacto con tu cliente.
-                    </p>
-                    <a href="#" class="btn">Ver Planes de Estrategia</a>
-                </div>
-            </section>
-        </div>
 
-        <!-- === DESCANSO VISUAL 1 === -->
+                <!-- Público objetivo -->
+                <div class="elemento-card">
+                    <i class="fas fa-users"></i>
+                    <h3>P&uacute;blico Objetivo</h3>
+                    <p>Entender profundamente a los clientes para ser relevante y comunicar el valor que la marca les ofrece.</p>
+                </div>
+
+                <!-- Instrumentos de Comunicación -->
+                <div class="elemento-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Instrumentos de Comunicaci&oacute;n y Publicidad</h3>
+                    <p>Contar con los medios adecuados y gestionarlos correctamente para lograr posicionar a la marca en la mente de sus consumidores: p&aacute;gina web, redes sociales, campa&ntilde;as de promoci&oacute;n, activaciones, etc.</p>
+                </div>
+
+                <!-- Narrativa -->
+                <div class="elemento-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Narrativa (Storytelling)</h3>
+                    <p>Contar historias convincentes para crear una conexi&oacute;n personal y emocional con la audiencia.</p>
+                </div>
+            </div>
+        </section>
+
+                <!-- === DESCANSO VISUAL 1 === -->
         <section class="quote-break reveal">
-            <h2>"El marketing ya no se trata de las cosas que vendes, sino de las historias que cuentas."</h2>
-            <span>Seth Godin</span>
+            <h2>"RG es una de las empresas de marketing que mejor nos trabajan, han realizado para nosotros diversos proyectos, entre los que destacan estudios de mercado. ¡Los recomendamos ampliamente!"</h2>
+            <span>UPAEP</span>
         </section>
 
-        <!-- === SERVICIO 2: SOCIAL MEDIA === -->
-        <div class="container">
-            <section class="service-section">
-                <!-- Imagen -->
-                <div class="service-image reveal-right">
-                    <span class="service-number">02</span>
-                    <svg viewBox="0 0 800 600" width="100%" height="auto" style="background:#1e1e1e; border-radius:12px;">
-                        <rect width="800" height="600" fill="#2d2d2d"/>
-                        <circle cx="200" cy="200" r="40" fill="#f4a71c"/>
-                        <circle cx="600" cy="400" r="60" fill="#f4a71c" opacity="0.7"/>
-                        <circle cx="400" cy="100" r="30" fill="#ffffff" opacity="0.5"/>
-                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#888" font-size="24" font-family="sans-serif">Imagen: Social Media</text>
-                    </svg>
+
+        
+
+        <!-- SECCIÓN POR QUÉ ES IMPORTANTE -->
+        <section class="nosotros-importancia">
+            <h2>&iquest;Por qu&eacute; es importante la <span class="highlight">Gesti&oacute;n de tu Marca</span>?</h2>
+
+            <div class="importancia-grid">
+                <!-- Incrementa el valor -->
+                <div class="importancia-item">
+                    <div class="importancia-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Incrementa el valor</h3>
+                    <p>Eleva la percepci&oacute;n de una marca con sus productos o servicios.</p>
                 </div>
 
-                <!-- Texto -->
-                <div class="service-content reveal-left">
-                    <h2>Gestión de <span class="highlight">Redes Sociales</span></h2>
-                    <p>
-                        Transformamos seguidores en comunidad y comunidad en clientes. Creamos contenido visualmente impactante y copy persuasivo diseñado para detener el "scroll". No solo publicamos; generamos conversación, interacción y lealtad hacia tu marca.
-                    </p>
-                    <p>
-                        Gestionamos tus perfiles en Instagram, LinkedIn, TikTok y Facebook con un calendario editorial estratégico y constante.
-                    </p>
-                    <a href="#" class="btn">Explorar Social Media</a>
+                <!-- Genera lealtad -->
+                <div class="importancia-item">
+                    <div class="importancia-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Genera lealtad</h3>
+                    <p>Crea una base de clientes fieles y embajadores de la marca.</p>
                 </div>
-            </section>
-        </div>
 
-        <!-- === SERVICIO 3: PUBLICIDAD (ADS) === -->
-        <div class="container">
-            <section class="service-section">
-                <!-- Imagen -->
-                <div class="service-image reveal-left">
-                    <span class="service-number">03</span>
-                    <svg viewBox="0 0 800 600" width="100%" height="auto" style="background:#1e1e1e; border-radius:12px;">
-                        <rect width="800" height="600" fill="#1e1e1e"/>
-                        <rect x="100" y="100" width="200" height="150" rx="10" fill="#f4a71c" opacity="0.8"/>
-                        <rect x="350" y="200" width="200" height="150" rx="10" fill="#444444" opacity="0.8"/>
-                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#888" font-size="24" font-family="sans-serif">Imagen: Paid Ads</text>
-                    </svg>
+                <!-- Aumenta el reconocimiento -->
+                <div class="importancia-item">
+                    <div class="importancia-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Aumenta el reconocimiento</h3>
+                    <p>Genera que la empresa sea m&aacute;s f&aacute;cil de reconocer y recordar.</p>
                 </div>
-                
-                <!-- Texto -->
-                <div class="service-content reveal-right">
-                    <h2>Publicidad Digital <span class="highlight">& Performance</span></h2>
-                    <p>
-                        Llegamos a tu cliente ideal en el momento exacto. Nuestras campañas de Paid Media (Google Ads, Meta Ads) están obsesionadas con los datos. Optimizamos presupuestos día a día para reducir tu coste por adquisición y aumentar tus ventas.
-                    </p>
-                    <p>
-                        Segmentación láser para que cada peso invertido tenga el potencial de convertirse en ganancia real.
-                    </p>
-                    <a href="#" class="btn">Impulsar mis Ventas</a>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
-        <!-- === DESCANSO VISUAL 2 === -->
+                <!-- === DESCANSO VISUAL 2 === -->
         <section class="quote-break reveal">
-            <h2>"La creatividad es la inteligencia divirtiéndose, y nosotros nos tomamos la diversión muy en serio."</h2>
-            <span>Filosofía de Agencia</span>
+            <h2>"En RG encontramos la asesoría y diseño que nuestra empresa necesitaba, nos renovaron nuestra imagen y papelería; su equipo nos estudió a detalle dejando excelentes resultados."</h2>
+            <span>SALGADO PRODUCCIONES</span>
         </section>
-
-        <!-- === SERVICIO 4: ANALÍTICA === -->
-        <div class="container">
-            <section class="service-section">
-                <!-- Imagen -->
-                <div class="service-image reveal-right">
-                    <span class="service-number">04</span>
-                    <svg viewBox="0 0 800 600" width="100%" height="auto" style="background:#1e1e1e; border-radius:12px;">
-                        <rect width="800" height="600" fill="#2d2d2d"/>
-                        <path d="M100 500 L250 300 L400 400 L550 200 L700 100" stroke="#f4a71c" stroke-width="15" fill="none" stroke-linecap="round"/>
-                        <circle cx="250" cy="300" r="10" fill="white"/>
-                        <circle cx="400" cy="400" r="10" fill="white"/>
-                        <circle cx="550" cy="200" r="10" fill="white"/>
-                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#888" font-size="24" font-family="sans-serif" dy="40">Imagen: Analítica</text>
-                    </svg>
-                </div>
-
-                <!-- Texto -->
-                <div class="service-content reveal-left">
-                    <h2>Analítica y <span class="highlight">Reportes de Datos</span></h2>
-                    <p>
-                        Lo que no se mide, no se puede mejorar. Te entregamos transparencia total. Nuestros reportes mensuales no son solo números; son insights accionables. Traducimos la data compleja en estrategias claras para el siguiente mes.
-                    </p>
-                    <p>
-                        Entenderás perfectamente qué está funcionando, qué no, y hacia dónde vamos a dirigir el barco.
-                    </p>
-                    <a href="#" class="btn">Ver Ejemplo de Reporte</a>
-                </div>
-            </section>
-        </div>
 
 
     </main>
 
 
-    <!-- Placeholder para Footer (Opcional) -->
-    <footer style="background: #000; padding: 40px; text-align: center; margin-top: 50px; border-top: 1px solid #333;">
-        <p style="color: #666; font-size: 0.9rem;">© 2024 Tu Agencia de Marketing. Todos los derechos reservados.</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand">
+                <img src="./img/logoRG.png" alt="Logo RG" class="footer-brand-logo">
+                <p>Somos una agencia especializada en gestión de marcas. Transformamos negocios a través de estrategias de marketing integrales, diseño y comunicación efectiva.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="./simulador-servicios.html">Simulador IA</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="./contacto.html">Investigación de Mercados</a></li>
+                    <li><a href="./contacto.html">Naming, Diseño y Producción</a></li>
+                    <li><a href="./contacto.html">Diseño Web</a></li>
+                    <li><a href="./contacto.html">Gestión de Redes Sociales</a></li>
+                    <li><a href="./contacto.html">Cursos y Capacitación</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contacto@rgmarketing.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+52 222 446 7947</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RG Gestión de Marcas. Todos los derechos reservados.</p>
+            <p class="footer-credit">Diseñado y desarrollado por <a href="https://www.instagram.com/axel_meyrek" target="_blank" rel="noopener noreferrer">Axel Meyrek</a></p>
+            <a href="./contacto.html">Política de privacidad</a>
+        </div>
     </footer>
 
 
-
-
-    
-
-    <!-- SECCIÓN 2: CAMPAÑAS Y ACTIVACIONES -->
-     <div id="sec-campanas" class="screen">
-         <section class="service-section-A">
-             <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
-     
-             <div class="content-wrapper">
-                 <!-- Invertimos orden visual para variedad (opcional, aquí mantenemos igual para consistencia) -->
-                 <div class="info-col">
-                     <span class="service-number">02</span>
-                     <h2 class="service-title">Campañas y <span>Activaciones</span></h2>
-                     <p class="service-description">
-                         Llevamos tu marca al mundo real con activaciones BTL impactantes. Creamos momentos memorables en eventos, puntos de venta y espacios públicos que generan conversación y conectan emocionalmente con tu audiencia objetivo.
-                     </p>
-                     <a href="#" class="cta-button">Ver Activaciones</a>
-                 </div>
-                 <div class="gallery-col">
-                     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=400&q=80" alt="Evento 1"></div>
-                     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=400&q=80" alt="Evento 2"></div>
-                     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=400&q=80" alt="Evento 3"></div>
-                     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=400&q=80" alt="Evento 4"></div>
-                 </div>
-             </div>
-     
-             <div class="brand-carousel">
-                 <div class="brand-track">
-                     <div class="brand-item"><i class="fas fa-bolt"></i> RedBull</div>
-                     <div class="brand-item"><i class="fas fa-wine-glass"></i> Corona</div>
-                     <div class="brand-item"><i class="fas fa-car"></i> Tesla</div>
-                     <div class="brand-item"><i class="fas fa-running"></i> Nike</div>
-                     <div class="brand-item"><i class="fas fa-tshirt"></i> Adidas</div>
-                     <!-- Duplicados -->
-                     <div class="brand-item"><i class="fas fa-bolt"></i> RedBull</div>
-                     <div class="brand-item"><i class="fas fa-wine-glass"></i> Corona</div>
-                     <div class="brand-item"><i class="fas fa-car"></i> Tesla</div>
-                     <div class="brand-item"><i class="fas fa-running"></i> Nike</div>
-                     <div class="brand-item"><i class="fas fa-tshirt"></i> Adidas</div>
-                 </div>
-             </div>
-         </section>
-     </div>
-
-    <!-- SECCIÓN 3: ESTRATEGIA DIGITAL -->
-    <div id="sec-estrategia" class="screen">
+    <!-- SECCIÓN: INVESTIGACIÓN DE MERCADOS -->
+    <div id="sec-investigacion" class="screen">
         <section class="service-section-A">
-             <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
+            <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
             <div class="content-wrapper">
                 <div class="info-col">
-                    <span class="service-number">03</span>
-                    <h2 class="service-title">Estrategia <span>Digital</span></h2>
+                    <h2 class="service-title">Investigación de <span>Mercados</span></h2>
                     <p class="service-description">
-                        No solo publicamos, construimos caminos. Desarrollo de embudos de venta, gestión de redes sociales (Community Management), campañas de Ads (Meta, Google, TikTok) y análisis de métricas para maximizar tu ROI.
+                        Un estudio de mercado ayudará a tu marca a conocer a sus clientes y a su competencia, permitiéndote identificar qué necesitas para conectar con tus consumidores y ofertar tus productos o servicios mediante estrategias precisas y eficientes.
                     </p>
-                    <a href="#" class="cta-button">Ver Estrategias</a>
+                    <h3 class="service-subtitle">Estudio Cualitativo</h3>
+                    <p class="service-description">
+                        Un estudio de mercado cualitativo te ayudará a conocer percepciones, gustos y preferencias de tus clientes acerca de tu marca, productos o servicios. Se realiza mediante Focus Group y entrevistas de profundidad, de manera presencial o en línea.
+                    </p>
+                    <h3 class="service-subtitle">Estudio de Benchmarking</h3>
+                    <p class="service-description">
+                        Un estudio de mercado de benchmarking te ayudará a analizar y observar a tus competidores para, con base en la información recabada, tomar decisiones estratégicas orientadas al posicionamiento y reconocimiento de tu marca.
+                    </p>
+                    <h3 class="service-subtitle">Estudio Cuantitativo</h3>
+                    <p class="service-description">
+                        Un estudio de mercado cuantitativo te permitirá obtener datos numéricos y estadísticos para medir, describir y predecir comportamientos del mercado, tendencias y la efectividad de estrategias, facilitando la toma de decisiones de tu empresa.
+                    </p>
+                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
                 </div>
                 <div class="gallery-col">
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=400&q=80" alt="Estrategia 1"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Estrategia 2"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=400&q=80" alt="Estrategia 3"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" alt="Estrategia 4"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Investigación 1"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Investigación 2"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?auto=format&fit=crop&w=400&q=80" alt="Investigación 3"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=400&q=80" alt="Investigación 4"></div>
                 </div>
             </div>
-    
+
             <div class="brand-carousel">
                 <div class="brand-track">
-                    <div class="brand-item"><i class="fab fa-meta"></i> Meta</div>
-                    <div class="brand-item"><i class="fab fa-linkedin"></i> LinkedIn</div>
-                    <div class="brand-item"><i class="fab fa-tiktok"></i> TikTok</div>
-                    <div class="brand-item"><i class="fas fa-bullhorn"></i> Hubspot</div>
-                    <div class="brand-item"><i class="fas fa-chart-line"></i> Salesforce</div>
+                    <div class="brand-item"><i class="fas fa-building"></i> Nielsen</div>
+                    <div class="brand-item"><i class="fas fa-chart-pie"></i> Gartner</div>
+                    <div class="brand-item"><i class="fas fa-globe"></i> Ipsos</div>
+                    <div class="brand-item"><i class="fas fa-university"></i> Kantar</div>
+                    <div class="brand-item"><i class="fas fa-search"></i> Forrester</div>
                     <!-- Duplicados -->
-                    <div class="brand-item"><i class="fab fa-meta"></i> Meta</div>
-                    <div class="brand-item"><i class="fab fa-linkedin"></i> LinkedIn</div>
-                    <div class="brand-item"><i class="fab fa-tiktok"></i> TikTok</div>
-                    <div class="brand-item"><i class="fas fa-bullhorn"></i> Hubspot</div>
-                    <div class="brand-item"><i class="fas fa-chart-line"></i> Salesforce</div>
+                    <div class="brand-item"><i class="fas fa-building"></i> Nielsen</div>
+                    <div class="brand-item"><i class="fas fa-chart-pie"></i> Gartner</div>
+                    <div class="brand-item"><i class="fas fa-globe"></i> Ipsos</div>
+                    <div class="brand-item"><i class="fas fa-university"></i> Kantar</div>
+                    <div class="brand-item"><i class="fas fa-search"></i> Forrester</div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- SECCIÓN 4: BRANDING -->
+    <!-- SECCIÓN: NAMING, DISEÑO Y PRODUCCIÓN -->
     <div id="sec-branding" class="screen">
         <section class="service-section-A">
-                <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
+            <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
             <div class="content-wrapper">
                 <div class="info-col">
-                    <span class="service-number">04</span>
-                    <h2 class="service-title">Branding & <span>Diseño</span></h2>
+                    <h2 class="service-title">Naming, Diseño y <span>Producción</span></h2>
                     <p class="service-description">
-                        Tu marca es más que un logo. Construimos identidades visuales coherentes, manuales de marca, naming y papelería corporativa que transmiten la esencia y los valores de tu empresa. Diseño que perdura.
+                        <strong>Naming:</strong> Te ayudamos, mediante la investigación de mercados, a determinar el nombre más adecuado para que tu empresa logre conectar con el mercado. <strong>Diseño:</strong> Creamos la imagen corporativa, identidad visual y campañas de promoción para tu marca. <strong>Producción:</strong> Generamos instrumentos audiovisuales para posicionar tu marca.
                     </p>
-                    <a href="#" class="cta-button">Ver Portafolio</a>
+                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
                 </div>
                 <div class="gallery-col">
                     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1626785774573-4b799315545d?auto=format&fit=crop&w=400&q=80" alt="Branding 1"></div>
@@ -364,7 +344,7 @@
                     <div class="gallery-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=400&q=80" alt="Branding 4"></div>
                 </div>
             </div>
-    
+
             <div class="brand-carousel">
                 <div class="brand-track">
                     <div class="brand-item"><i class="fas fa-apple-alt"></i> Apple</div>
@@ -383,84 +363,118 @@
         </section>
     </div>
 
-    <!-- SECCIÓN 5: INVESTIGACIÓN DE MERCADOS -->
-    <div id="sec-investigacion" class="screen">
-        <section class="service-section-A" style="border-bottom: none;">
-                <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
+    <!-- SECCIÓN: DISEÑO WEB -->
+    <div id="sec-web" class="screen">
+        <section class="service-section-A">
+            <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
             <div class="content-wrapper">
                 <div class="info-col">
-                    <span class="service-number">05</span>
-                    <h2 class="service-title">Investigación de <span>Mercados</span></h2>
+                    <h2 class="service-title">Diseño <span>Web</span></h2>
                     <p class="service-description">
-                        Datos reales para decisiones inteligentes. Realizamos estudios cualitativos y cuantitativos, Focus Groups, análisis de competencia y tendencias de consumo para validar tu producto antes de lanzarlo al mercado.
+                        Creamos tu página web para proporcionar visibilidad global 24/7 a tu marca, aumentar la credibilidad y el profesionalismo de tu empresa, y funcionar como un escaparate digital que atraiga y fidelice clientes.
                     </p>
-                    <a href="#" class="cta-button">Ver Reportes</a>
+                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
                 </div>
                 <div class="gallery-col">
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Data 1"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Data 2"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?auto=format&fit=crop&w=400&q=80" alt="Data 3"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=400&q=80" alt="Data 4"></div>
+                    <div class="gallery-item"><img src="./img/diseñoWeb/disenioWeb1.webp" alt="Web 1"></div>
+                    <div class="gallery-item"><img src="./img/diseñoWeb/disenioWeb2.webp" alt="Web 2"></div>
+                    <div class="gallery-item"><img src="./img/diseñoWeb/disenioWeb3.webp" alt="Web 3"></div>
+                    <div class="gallery-item"><img src="./img/diseñoWeb/disenioWeb4.webp" alt="Web 4"></div>
                 </div>
             </div>
-    
+
             <div class="brand-carousel">
                 <div class="brand-track">
-                    <div class="brand-item"><i class="fas fa-building"></i> Nielsen</div>
-                    <div class="brand-item"><i class="fas fa-chart-pie"></i> Gartner</div>
-                    <div class="brand-item"><i class="fas fa-globe"></i> Ipsos</div>
-                    <div class="brand-item"><i class="fas fa-university"></i> Kantar</div>
-                    <div class="brand-item"><i class="fas fa-search"></i> Forrester</div>
+                    <div class="brand-item"><i class="fab fa-google"></i> Google</div>
+                    <div class="brand-item"><i class="fab fa-aws"></i> Amazon</div>
+                    <div class="brand-item"><i class="fab fa-spotify"></i> Spotify</div>
+                    <div class="brand-item"><i class="fab fa-airbnb"></i> Airbnb</div>
+                    <div class="brand-item"><i class="fab fa-stripe"></i> Stripe</div>
                     <!-- Duplicados -->
-                    <div class="brand-item"><i class="fas fa-building"></i> Nielsen</div>
-                    <div class="brand-item"><i class="fas fa-chart-pie"></i> Gartner</div>
-                    <div class="brand-item"><i class="fas fa-globe"></i> Ipsos</div>
-                    <div class="brand-item"><i class="fas fa-university"></i> Kantar</div>
-                    <div class="brand-item"><i class="fas fa-search"></i> Forrester</div>
+                    <div class="brand-item"><i class="fab fa-google"></i> Google</div>
+                    <div class="brand-item"><i class="fab fa-aws"></i> Amazon</div>
+                    <div class="brand-item"><i class="fab fa-spotify"></i> Spotify</div>
+                    <div class="brand-item"><i class="fab fa-airbnb"></i> Airbnb</div>
+                    <div class="brand-item"><i class="fab fa-stripe"></i> Stripe</div>
                 </div>
             </div>
         </section>
     </div>
 
-
-    <section id="sec-web" class="screen">
+    <!-- SECCIÓN: GESTIÓN DE REDES SOCIALES -->
+    <div id="sec-redes" class="screen">
+        <section class="service-section-A">
             <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
-            <!-- Contenido del usuario con Carrusel, envuelto en un div para mantener el estilo -->
-            <div class="service-section-A">
-                <div class="content-wrapper">
-                    <div class="info-col">
-                        <span class="service-number">01</span>
-                        <h2 class="service-title">Páginas <span>Web</span></h2>
-                        <p class="service-description">
-                            Diseñamos experiencias digitales inmersivas y funcionales. Desde Landing Pages de alta conversión hasta E-commerce robustos. Nos enfocamos en la velocidad, SEO y una experiencia de usuario (UX) impecable para asegurar que tu negocio destaque en internet.
-                        </p>
-                        <a href="#" class="cta-button">Ver Proyectos</a>
-                    </div>
-                    <div class="gallery-col">
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=400&q=80" alt="Web 1"></div>
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" alt="Web 2"></div>
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&w=400&q=80" alt="Web 3"></div>
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=400&q=80" alt="Web 4"></div>
-                    </div>
+            <div class="content-wrapper">
+                <div class="info-col">
+                    <h2 class="service-title">Gestión de <span>Redes Sociales</span></h2>
+                    <p class="service-description">
+                        Creamos un plan personalizado de acuerdo con las necesidades de tu marca para aumentar la visibilidad de tu negocio, construir una reputación sólida y permitir la interacción directa con tus consumidores.
+                    </p>
+                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
                 </div>
-                
-                <!-- Carrusel de Patrocinadores -->
-                <div class="brand-carousel">
-                    <div class="brand-track">
-                        <div class="brand-item"><i class="fab fa-google"></i> Google</div>
-                        <div class="brand-item"><i class="fab fa-aws"></i> Amazon</div>
-                        <div class="brand-item"><i class="fab fa-spotify"></i> Spotify</div>
-                        <div class="brand-item"><i class="fab fa-airbnb"></i> Airbnb</div>
-                        <div class="brand-item"><i class="fab fa-stripe"></i> Stripe</div>
-                        <!-- Duplicados para efecto infinito -->
-                        <div class="brand-item"><i class="fab fa-google"></i> Google</div>
-                        <div class="brand-item"><i class="fab fa-aws"></i> Amazon</div>
-                        <div class="brand-item"><i class="fab fa-spotify"></i> Spotify</div>
-                        <div class="brand-item"><i class="fab fa-airbnb"></i> Airbnb</div>
-                        <div class="brand-item"><i class="fab fa-stripe"></i> Stripe</div>
-                    </div>
+                <div class="gallery-col">
+                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales1.webp" alt="Redes Sociales 1"></div>
+                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales2.webp" alt="Redes Sociales 2"></div>
+                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales3.webp" alt="Redes Sociales 3"></div>
+                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales4.webp" alt="Redes Sociales 4"></div>
+                </div>
+            </div>
+
+            <div class="brand-carousel">
+                <div class="brand-track">
+                    <div class="brand-item"><i class="fab fa-meta"></i> Meta</div>
+                    <div class="brand-item"><i class="fab fa-instagram"></i> Instagram</div>
+                    <div class="brand-item"><i class="fab fa-tiktok"></i> TikTok</div>
+                    <div class="brand-item"><i class="fab fa-linkedin"></i> LinkedIn</div>
+                    <div class="brand-item"><i class="fab fa-facebook"></i> Facebook</div>
+                    <!-- Duplicados -->
+                    <div class="brand-item"><i class="fab fa-meta"></i> Meta</div>
+                    <div class="brand-item"><i class="fab fa-instagram"></i> Instagram</div>
+                    <div class="brand-item"><i class="fab fa-tiktok"></i> TikTok</div>
+                    <div class="brand-item"><i class="fab fa-linkedin"></i> LinkedIn</div>
+                    <div class="brand-item"><i class="fab fa-facebook"></i> Facebook</div>
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- SECCIÓN: CURSOS Y CAPACITACIÓN -->
+    <div id="sec-cursos" class="screen">
+        <section class="service-section-A">
+            <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
+            <div class="content-wrapper">
+                <div class="info-col">
+                    <h2 class="service-title">Cursos y <span>Capacitación</span></h2>
+                    <p class="service-description">
+                        Generamos e impartimos cursos, capacitaciones y congresos para el personal de tu empresa, con el objetivo de aumentar su productividad, mejorar la calidad de sus labores y fomentar la innovación para adaptarse a los cambios del mercado.
+                    </p>
+                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
+                </div>
+                <div class="gallery-col">
+                    <div class="gallery-item"><img src="./img/cursosYCapacitacion/cursosYCapacitacion1.webp" alt="Cursos 1"></div>
+                    <div class="gallery-item"><img src="./img/cursosYCapacitacion/cursosYCapacitacion2.webp" alt="Cursos 2"></div>
+                    <div class="gallery-item"><img src="./img/cursosYCapacitacion/cursosYCapacitacion3.webp" alt="Cursos 3"></div>
+                    <div class="gallery-item"><img src="./img/cursosYCapacitacion/cursosYCapacitacion4.webp" alt="Cursos 4"></div>
+                </div>
+            </div>
+
+            <div class="brand-carousel">
+                <div class="brand-track">
+                    <div class="brand-item"><i class="fas fa-graduation-cap"></i> Coursera</div>
+                    <div class="brand-item"><i class="fab fa-google"></i> Google</div>
+                    <div class="brand-item"><i class="fab fa-hubspot"></i> HubSpot</div>
+                    <div class="brand-item"><i class="fas fa-certificate"></i> Hootsuite</div>
+                    <div class="brand-item"><i class="fas fa-chalkboard-teacher"></i> Semrush</div>
+                    <!-- Duplicados -->
+                    <div class="brand-item"><i class="fas fa-graduation-cap"></i> Coursera</div>
+                    <div class="brand-item"><i class="fab fa-google"></i> Google</div>
+                    <div class="brand-item"><i class="fab fa-hubspot"></i> HubSpot</div>
+                    <div class="brand-item"><i class="fas fa-certificate"></i> Hootsuite</div>
+                    <div class="brand-item"><i class="fas fa-chalkboard-teacher"></i> Semrush</div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html> 

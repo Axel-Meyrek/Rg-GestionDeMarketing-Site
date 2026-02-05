@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- METADATOS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/simulador.css">
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    <script src="./js/particles.js" defer></script>
+    <!-- html2pdf para descarga en PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <!-- Configuración de API (no se sube al repositorio) -->
+    <script src="./config.js"></script>
+    <!-- GENERAL -->
+    <title>Simulador de Servicios | RG Agencia de Marketing</title>
+</head>
+<body>
+    <!-- PARTICLES -->
+    <div id="particles-js"></div>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="nav">
+        <div class="containerLogo">
+            <a href="./index.html">
+                <img class="nav_logo" src="./img/logoRG.png" alt="Logo RG Agencia de Marketing">
+            </a>
+        </div>
+        <button class="nav_buttonMenu" id="menuBtn">
+            <svg class="nav_buttonMenuSVG"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <div class="circular_reveal_menu" id="menuOverlay">
+            <ul class="menu_items">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+        <!-- ENCABEZADO -->
+        <section class="simulador-header">
+            <h1>Simulador de <span class="highlight">Servicios</span></h1>
+            <p>Describe tu negocio y nuestra IA analizar&aacute; qu&eacute; servicios de marketing necesitas, priorizados por impacto.</p>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section class="simulador-form-section">
+            <div class="simulador-card">
+                <label class="simulador-label" for="negocioInput">Describe tu negocio</label>
+                <textarea
+                    class="simulador-textarea"
+                    id="negocioInput"
+                    placeholder="Ej: Tengo una cafeter&iacute;a artesanal en el centro de la ciudad. Llevamos 2 a&ntilde;os operando, tenemos presencia b&aacute;sica en Instagram pero queremos crecer y llegar a m&aacute;s clientes j&oacute;venes..."
+                    maxlength="2000"
+                ></textarea>
+                <div class="char-counter" id="charCounter">0 / 2000</div>
+
+                <!-- Sugerencias rápidas -->
+                <div class="simulador-hints">
+                    <span class="hint-chip" data-hint="Tengo una tienda de ropa online que vende a todo México. Quiero aumentar ventas y posicionar mi marca.">Tienda online</span>
+                    <span class="hint-chip" data-hint="Soy dentista y tengo un consultorio privado. Necesito atraer más pacientes en mi zona.">Consultorio</span>
+                    <span class="hint-chip" data-hint="Tenemos un restaurante familiar con 5 años de operación. Queremos modernizar nuestra imagen y atraer público joven.">Restaurante</span>
+                    <span class="hint-chip" data-hint="Soy coach de vida y vendo cursos online. Quiero escalar mi negocio digital.">Negocio digital</span>
+                </div>
+
+                <div class="simulador-actions">
+                    <button class="btn-analizar" id="btnAnalizar" disabled>
+                        <span class="spinner"></span>
+                        <i class="fas fa-bolt btn-icon"></i>
+                        <span class="btn-text">Analizar mi negocio</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTADO DE CARGA -->
+        <section class="loading-section" id="loadingSection">
+            <div class="loading-animation">
+                <div class="loading-bars">
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                </div>
+                <p class="loading-text">Analizando tu negocio con <span>inteligencia artificial</span>...</p>
+            </div>
+        </section>
+
+        <!-- ERROR -->
+        <section class="error-section" id="errorSection">
+            <div class="error-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Ocurri&oacute; un error</h3>
+                <p id="errorMessage">No pudimos completar el an&aacute;lisis. Por favor intenta de nuevo.</p>
+                <button class="btn-reintentar" id="btnReintentar">
+                    <i class="fas fa-redo"></i> Reintentar
+                </button>
+            </div>
+        </section>
+
+        <!-- RESULTADOS -->
+        <section class="resultados-section" id="resultadosSection">
+            <div id="resultadosContent">
+                <!-- Análisis del negocio -->
+                <div class="resultado-analisis" id="analisisBox">
+                    <h2><i class="fas fa-lightbulb"></i> An&aacute;lisis de tu negocio</h2>
+                    <p id="analisisTexto"></p>
+                </div>
+
+                <!-- Servicios priorizados -->
+                <h2 class="servicios-titulo">Servicios <span class="highlight">recomendados</span></h2>
+                <div class="servicios-grid" id="serviciosGrid">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Acciones -->
+            <div class="resultados-actions">
+                <button class="btn-descargar" id="btnDescargar">
+                    <i class="fas fa-download"></i> Descargar resumen
+                </button>
+                <button class="btn-reiniciar" id="btnReiniciar">
+                    <i class="fas fa-redo"></i> Nuevo an&aacute;lisis
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand">
+                <img src="./img/logoRG.png" alt="Logo RG" class="footer-brand-logo">
+                <p>Somos una agencia especializada en gestión de marcas. Transformamos negocios a través de estrategias de marketing integrales, diseño y comunicación efectiva.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="./simulador-servicios.html">Simulador IA</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="./contacto.html">Investigación de Mercados</a></li>
+                    <li><a href="./contacto.html">Naming, Diseño y Producción</a></li>
+                    <li><a href="./contacto.html">Diseño Web</a></li>
+                    <li><a href="./contacto.html">Gestión de Redes Sociales</a></li>
+                    <li><a href="./contacto.html">Cursos y Capacitación</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>contacto@rgmarketing.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+52 222 446 7947</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RG Gestión de Marcas. Todos los derechos reservados.</p>
+            <p class="footer-credit">Diseñado y desarrollado por <a href="https://www.instagram.com/axel_meyrek" target="_blank" rel="noopener noreferrer">Axel Meyrek</a></p>
+            <a href="./contacto.html">Política de privacidad</a>
+        </div>
+    </footer>
+
+    <script>
+    /* La API key se carga desde config.js (ver config.example.js) */
+
+    /* Lista de servicios que ofrece RG Gestión de Marcas */
+    const SERVICIOS_RG = [
+        'Investigación de mercados',
+        'Gestión de Redes Sociales (Community Management)',
+        'Publicidad Digital & Performance (Google Ads, Meta Ads)',
+        'Branding & Diseño (Identidad visual, naming, manual de marca)',
+        'Diseño Web (Landing pages, E-commerce, UX/UI)',
+        'Campañas y Activaciones BTL',
+        'Estrategia Digital (Embudos de venta, Ads, métricas)',
+        'Analítica y Reportes de Datos',
+        'Cursos y Capacitación en Marketing',
+        'Naming, diseño y producción'
+    ];
+
+    /* ============================================================
+       ELEMENTOS DEL DOM
+       ============================================================ */
+    const negocioInput = document.getElementById('negocioInput');
+    const charCounter = document.getElementById('charCounter');
+    const btnAnalizar = document.getElementById('btnAnalizar');
+    const loadingSection = document.getElementById('loadingSection');
+    const errorSection = document.getElementById('errorSection');
+    const errorMessage = document.getElementById('errorMessage');
+    const btnReintentar = document.getElementById('btnReintentar');
+    const resultadosSection = document.getElementById('resultadosSection');
+    const analisisTexto = document.getElementById('analisisTexto');
+    const serviciosGrid = document.getElementById('serviciosGrid');
+    const btnDescargar = document.getElementById('btnDescargar');
+    const btnReiniciar = document.getElementById('btnReiniciar');
+    const hintChips = document.querySelectorAll('.hint-chip');
+
+    /* Variable para guardar la descripción usada en el último análisis */
+    let ultimaDescripcion = '';
+
+    /* ============================================================
+       EVENTOS
+       ============================================================ */
+
+    /* Contador de caracteres y habilitación del botón */
+    negocioInput.addEventListener('input', function() {
+        const len = this.value.length;
+        charCounter.textContent = len + ' / 2000';
+        charCounter.classList.toggle('active', len > 0);
+        charCounter.classList.toggle('warning', len >= 1900);
+        btnAnalizar.disabled = len < 20;
+    });
+
+    /* Chips de sugerencia: rellenan el textarea */
+    hintChips.forEach(function(chip) {
+        chip.addEventListener('click', function() {
+            negocioInput.value = this.dataset.hint;
+            negocioInput.dispatchEvent(new Event('input'));
+            negocioInput.focus();
+        });
+    });
+
+    /* Botón principal de análisis */
+    btnAnalizar.addEventListener('click', function() {
+        analizarNegocio();
+    });
+
+    /* Reintentar tras error */
+    btnReintentar.addEventListener('click', function() {
+        analizarNegocio();
+    });
+
+    /* Nuevo análisis */
+    btnReiniciar.addEventListener('click', function() {
+        mostrarEstado('form');
+        negocioInput.value = '';
+        negocioInput.dispatchEvent(new Event('input'));
+        negocioInput.focus();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* Descargar resumen en PDF */
+    btnDescargar.addEventListener('click', function() {
+        descargarResumen();
+    });
+
+    /* ============================================================
+       FUNCIÓN PRINCIPAL: ANALIZAR NEGOCIO
+       ============================================================ */
+    async function analizarNegocio() {
+        const descripcion = negocioInput.value.trim();
+
+        /* Validación */
+        if (descripcion.length < 20) {
+            negocioInput.focus();
+            return;
+        }
+
+        ultimaDescripcion = descripcion;
+
+        /* Cambiar a estado de carga */
+        mostrarEstado('loading');
+        btnAnalizar.classList.add('loading');
+        btnAnalizar.disabled = true;
+
+        try {
+            const resultado = await llamarClaudeAPI(descripcion);
+            mostrarResultados(resultado);
+            mostrarEstado('resultados');
+        } catch (error) {
+            console.error('Error al analizar:', error);
+            errorMessage.textContent = error.message || 'No pudimos completar el análisis. Por favor intenta de nuevo.';
+            mostrarEstado('error');
+        } finally {
+            btnAnalizar.classList.remove('loading');
+            btnAnalizar.disabled = false;
+        }
+    }
+
+    /* ============================================================
+       LLAMADA A LA API DE CLAUDE (ANTHROPIC)
+       ============================================================ */
+    async function llamarClaudeAPI(descripcion) {
+        const listaServicios = SERVICIOS_RG.join(', ');
+
+        const prompt = 'Eres consultor de marketing. Analiza este negocio: ' + descripcion +
+            '. Servicios disponibles: ' + listaServicios +
+            '. Proporciona: 1) Análisis breve del negocio 2) Top servicios prioritarios en orden de importancia 3) Explicación de 2-3 líneas por cada servicio de por qué es prioritario.' +
+            '\n\nIMPORTANTE: Responde ÚNICAMENTE con un JSON válido con esta estructura exacta, sin texto adicional antes o después:\n' +
+            '{"analisis": "texto del análisis del negocio", "servicios": [{"nombre": "Nombre del servicio", "explicacion": "Por qué es prioritario"}]}';
+
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': ANTHROPIC_API_KEY,
+                'anthropic-version': '2023-06-01',
+                'anthropic-dangerous-direct-browser-access': 'true'
+            },
+            body: JSON.stringify({
+                model: 'claude-sonnet-4-20250514',
+                max_tokens: 1500,
+                messages: [
+                    {
+                        role: 'user',
+                        content: prompt
+                    }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(function() { return {}; });
+            if (response.status === 401) {
+                throw new Error('API key inválida. Configura tu API key de Anthropic en el archivo.');
+            }
+            if (response.status === 429) {
+                throw new Error('Demasiadas solicitudes. Espera un momento e intenta de nuevo.');
+            }
+            throw new Error(errorData.error?.message || 'Error al conectar con la API (código ' + response.status + ')');
+        }
+
+        const data = await response.json();
+        const textoRespuesta = data.content[0].text;
+
+        /* Parsear la respuesta JSON de Claude */
+        try {
+            /* Buscar el JSON dentro de la respuesta por si viene con texto extra */
+            var jsonMatch = textoRespuesta.match(/\{[\s\S]*\}/);
+            if (!jsonMatch) {
+                throw new Error('No se encontró JSON en la respuesta');
+            }
+            return JSON.parse(jsonMatch[0]);
+        } catch (parseError) {
+            console.error('Error parseando respuesta:', textoRespuesta);
+            throw new Error('La respuesta de la IA no tuvo el formato esperado. Intenta de nuevo.');
+        }
+    }
+
+    /* ============================================================
+       MOSTRAR RESULTADOS EN EL DOM
+       ============================================================ */
+    function mostrarResultados(data) {
+        /* Análisis del negocio */
+        analisisTexto.textContent = data.analisis || 'Análisis no disponible.';
+
+        /* Servicios priorizados */
+        serviciosGrid.innerHTML = '';
+
+        var servicios = data.servicios || [];
+        servicios.forEach(function(servicio, index) {
+            var card = document.createElement('div');
+            card.className = 'servicio-card';
+            card.innerHTML =
+                '<div class="servicio-rank">' + (index + 1) + '</div>' +
+                '<div class="servicio-info">' +
+                    '<h3>' + escapeHTML(servicio.nombre) + '</h3>' +
+                    '<p>' + escapeHTML(servicio.explicacion) + '</p>' +
+                '</div>';
+            serviciosGrid.appendChild(card);
+        });
+
+        /* Scroll suave a resultados */
+        setTimeout(function() {
+            resultadosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+
+    /* ============================================================
+       GESTIÓN DE ESTADOS DE LA UI
+       ============================================================ */
+    function mostrarEstado(estado) {
+        /* Ocultar todo primero */
+        loadingSection.classList.remove('active');
+        errorSection.classList.remove('active');
+        resultadosSection.classList.remove('active');
+
+        switch (estado) {
+            case 'loading':
+                loadingSection.classList.add('active');
+                break;
+            case 'error':
+                errorSection.classList.add('active');
+                break;
+            case 'resultados':
+                resultadosSection.classList.add('active');
+                break;
+            case 'form':
+                /* Solo el formulario visible, los demás ya están ocultos */
+                break;
+        }
+    }
+
+    /* ============================================================
+       DESCARGAR RESUMEN EN PDF
+       ============================================================
+       Genera un documento HTML temporal con estilos propios y lo
+       convierte a PDF usando html2pdf.js (CDN).
+       ============================================================ */
+    function descargarResumen() {
+        /* Extraer datos del DOM actual */
+        var analisis = analisisTexto.textContent;
+        var cards = serviciosGrid.querySelectorAll('.servicio-card');
+        var serviciosHTML = '';
+
+        cards.forEach(function(card, i) {
+            var nombre = card.querySelector('h3').textContent;
+            var explicacion = card.querySelector('p').textContent;
+            serviciosHTML +=
+                '<div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;padding:14px;background:#1e1e1e;border-radius:10px;border-left:3px solid #f4a71c;">' +
+                    '<div style="flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,#f4a71c,#ffc107);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#121212;">' + (i + 1) + '</div>' +
+                    '<div>' +
+                        '<div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:4px;">' + escapeHTML(nombre) + '</div>' +
+                        '<div style="font-size:0.9rem;color:#b3b3b3;line-height:1.5;">' + escapeHTML(explicacion) + '</div>' +
+                    '</div>' +
+                '</div>';
+        });
+
+        var contenidoPDF =
+            '<div style="font-family:Poppins,Helvetica,Arial,sans-serif;background:#121212;color:#fff;padding:40px;max-width:700px;margin:0 auto;">' +
+                '<div style="text-align:center;margin-bottom:30px;">' +
+                    '<h1 style="font-size:1.8rem;font-weight:800;margin-bottom:6px;">RG Gesti&oacute;n de Marcas</h1>' +
+                    '<p style="color:#b3b3b3;font-size:0.9rem;">Reporte de An&aacute;lisis de Servicios</p>' +
+                    '<div style="width:60px;height:3px;background:#f4a71c;margin:12px auto;"></div>' +
+                '</div>' +
+
+                '<div style="background:#1e1e1e;border-radius:12px;padding:20px;margin-bottom:24px;border-left:4px solid #f4a71c;">' +
+                    '<h2 style="font-size:1.1rem;color:#f4a71c;margin-bottom:10px;">An&aacute;lisis del Negocio</h2>' +
+                    '<p style="font-size:0.95rem;color:#d4d4d4;line-height:1.6;margin:0;">' + escapeHTML(analisis) + '</p>' +
+                '</div>' +
+
+                '<h2 style="font-size:1.2rem;margin-bottom:16px;text-align:center;">Servicios Recomendados</h2>' +
+                serviciosHTML +
+
+                '<div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #333;">' +
+                    '<p style="color:#666;font-size:0.75rem;margin:0;">Generado por RG Gesti&oacute;n de Marcas &mdash; Simulador de Servicios IA</p>' +
+                '</div>' +
+            '</div>';
+
+        /* Crear elemento temporal */
+        var container = document.createElement('div');
+        container.innerHTML = contenidoPDF;
+        document.body.appendChild(container);
+
+        /* Opciones de html2pdf */
+        var opciones = {
+            margin: 0,
+            filename: 'RG-Analisis-Servicios.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, backgroundColor: '#121212' },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opciones).from(container).save().then(function() {
+            document.body.removeChild(container);
+        });
+    }
+
+    /* ============================================================
+       UTILIDADES
+       ============================================================ */
+
+    /* Escapar HTML para prevenir XSS */
+    function escapeHTML(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+    }
+
+    /* ============================================================
+       MENÚ DE NAVEGACIÓN (igual que en las otras páginas)
+       ============================================================ */
+    var menuBtn = document.getElementById('menuBtn');
+    var menuOverlay = document.getElementById('menuOverlay');
+
+    menuBtn.addEventListener('click', function() {
+        menuOverlay.classList.toggle('active');
+        menuBtn.classList.toggle('is-active');
+    });
+    </script>
+</body>
+</html>
