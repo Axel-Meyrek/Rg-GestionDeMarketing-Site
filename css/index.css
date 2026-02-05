@@ -1192,3 +1192,11 @@ h3 {
         text-align: center;
     }
 }
+
+@media (width < 662px) {
+    .hero_logoSVG {
+        scale: 1.4;
+        transform: rotate(-20deg) translate(-32px,60px);
+    }
+
+}
