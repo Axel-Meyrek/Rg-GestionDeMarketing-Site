@@ -1122,6 +1122,46 @@ h3 {
     filter: brightness(1);
 }
 
+/* Diseño Web - Sección centrada */
+.web-section-centered {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.web-section-centered .service-title {
+    margin-bottom: 1.5rem;
+}
+
+.web-section-centered__desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--textGray);
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    border-left: none;
+    padding-left: 0;
+}
+
+.web-videos-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.web-videos-row lite-youtube {
+    border-radius: 8px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .web-videos-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* CTA centrado */
 .inv-cta {
     text-align: center;
