@@ -444,6 +444,24 @@ h3 {
 
 /* Menú fullscreen en móvil */
 @media (max-width: 768px) {
+    .nav {
+        padding: 0.6em 1.2em;
+    }
+
+    .containerLogo {
+        max-width: 110px;
+    }
+
+    .nav_buttonMenu {
+        top: 12px;
+        right: 12px;
+    }
+
+    .nav_buttonMenuSVG {
+        width: 30px;
+        height: 30px;
+    }
+
     .circular_reveal_menu {
         width: 100%;
         height: 100vh;
