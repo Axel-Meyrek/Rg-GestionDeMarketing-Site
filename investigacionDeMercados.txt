@@ -1,0 +1,20 @@
+Investigación de mercados
+Un estudio de mercado ayudará a tu marca a conocer a sus clientes o a su competencia y saber qué necesitas para lograr conectar con tus consumidores y ofertar tus productos o servicios con estrategias precisas y eficientes.
+
+Estudio Cualitativo
+Un estudio de mercado cualitativo te ayudará a conocer percepciones, gustos y preferencias de tus clientes acerca de tu marca, tus productos o servicios.
+Se realiza mediante diferentes instrumentos presenciales o en línea:
+-Focus Group
+-Entrevistas de Profundidad.
+[Aquí se debería colocar un iframe de un video de YouTube, utiliza <lite-youtube y carga el paquete con CDN]
+
+Estudio Benchmarking
+Un estudio de mercado benchmarking, te ayudará para analizar y observar a tus competidores y con base en la información recabada poder tomar decisiones estratégicas para el posicionamiento, y reconocimiento de tu marca.
+[Aquí debería verse una imagen horizontal]
+
+Estudio Cualitativo
+Un estudio de mercado cuantitativo te permitirá obtener datos numéricos y estadísticos para medir, describir y predecir comportamientos del mercado, tendencias y efectividad de estrategias para facilitar la toma de desiciones de tu empresa.
+[Aquí debería verse una imagen cuadra]
+
+
+Colocar un boton para redireccionar a la seccion de contacto, quiero que diga "CONTACTAR AHORA"

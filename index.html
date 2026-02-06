@@ -32,6 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/nosotros.css">
+    <!-- LITE-YOUTUBE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.min.js" defer></script>
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
     <script src="./js/particles.js" defer></script>
@@ -290,32 +293,63 @@
     <div id="sec-investigacion" class="screen">
         <section class="service-section-A">
             <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
-            <div class="content-wrapper">
-                <div class="info-col">
-                    <h2 class="service-title">Investigación de <span>Mercados</span></h2>
-                    <p class="service-description">
-                        Un estudio de mercado ayudará a tu marca a conocer a sus clientes y a su competencia, permitiéndote identificar qué necesitas para conectar con tus consumidores y ofertar tus productos o servicios mediante estrategias precisas y eficientes.
-                    </p>
+
+            <!-- Intro -->
+            <div class="inv-hero">
+                <h2 class="service-title">Investigación de <span>Mercados</span></h2>
+                <p class="inv-hero__desc">
+                    Un estudio de mercado ayudará a tu marca a conocer a sus clientes o a su competencia y saber qué necesitas para lograr conectar con tus consumidores y ofertar tus productos o servicios con estrategias precisas y eficientes.
+                </p>
+            </div>
+
+            <!-- Estudio Cualitativo -->
+            <div class="inv-block">
+                <div class="inv-block__info">
                     <h3 class="service-subtitle">Estudio Cualitativo</h3>
                     <p class="service-description">
-                        Un estudio de mercado cualitativo te ayudará a conocer percepciones, gustos y preferencias de tus clientes acerca de tu marca, productos o servicios. Se realiza mediante Focus Group y entrevistas de profundidad, de manera presencial o en línea.
+                        Un estudio de mercado cualitativo te ayudará a conocer percepciones, gustos y preferencias de tus clientes acerca de tu marca, tus productos o servicios.
                     </p>
-                    <h3 class="service-subtitle">Estudio de Benchmarking</h3>
+                    <p class="inv-block__instruments-label">Se realiza mediante diferentes instrumentos presenciales o en línea:</p>
+                    <ul class="inv-instruments">
+                        <li><i class="fas fa-users"></i> Focus Group</li>
+                        <li><i class="fas fa-comments"></i> Entrevistas de Profundidad</li>
+                    </ul>
+                </div>
+                <div class="inv-block__media">
+                    <!-- Reemplaza VIDEO_ID con el ID real del video de YouTube -->
+                    <lite-youtube videoid="VIDEO_ID" playlabel="Estudio Cualitativo - RG Gestión de Marcas"></lite-youtube>
+                </div>
+            </div>
+
+            <!-- Estudio Benchmarking -->
+            <div class="inv-block inv-block--reverse">
+                <div class="inv-block__info">
+                    <h3 class="service-subtitle">Estudio Benchmarking</h3>
                     <p class="service-description">
-                        Un estudio de mercado de benchmarking te ayudará a analizar y observar a tus competidores para, con base en la información recabada, tomar decisiones estratégicas orientadas al posicionamiento y reconocimiento de tu marca.
+                        Un estudio de mercado benchmarking, te ayudará para analizar y observar a tus competidores y con base en la información recabada poder tomar decisiones estratégicas para el posicionamiento, y reconocimiento de tu marca.
                     </p>
+                </div>
+                <div class="inv-block__media inv-block__media--horizontal">
+                    <img src="./img/InvestigacionDeMercados/investigacionDeMercados1.webp" alt="Estudio Benchmarking">
+                </div>
+            </div>
+
+            <!-- Estudio Cuantitativo -->
+            <div class="inv-block">
+                <div class="inv-block__info">
                     <h3 class="service-subtitle">Estudio Cuantitativo</h3>
                     <p class="service-description">
-                        Un estudio de mercado cuantitativo te permitirá obtener datos numéricos y estadísticos para medir, describir y predecir comportamientos del mercado, tendencias y la efectividad de estrategias, facilitando la toma de decisiones de tu empresa.
+                        Un estudio de mercado cuantitativo te permitirá obtener datos numéricos y estadísticos para medir, describir y predecir comportamientos del mercado, tendencias y efectividad de estrategias para facilitar la toma de decisiones de tu empresa.
                     </p>
-                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
                 </div>
-                <div class="gallery-col">
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Investigación 1"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Investigación 2"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?auto=format&fit=crop&w=400&q=80" alt="Investigación 3"></div>
-                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=400&q=80" alt="Investigación 4"></div>
+                <div class="inv-block__media inv-block__media--square">
+                    <img src="./img/InvestigacionDeMercados/investigacionDeMercados2.webp" alt="Estudio Cuantitativo">
                 </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="inv-cta">
+                <a href="./contacto.html" class="cta-button">CONTACTAR AHORA</a>
             </div>
 
             <div class="brand-carousel">

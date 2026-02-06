@@ -998,6 +998,166 @@ h3 {
 
 
 
+/* ===========================
+   INVESTIGACIÓN DE MERCADOS - REDESIGN
+   =========================== */
+
+/* Hero intro */
+.inv-hero {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.inv-hero .service-title {
+    margin-bottom: 1.5rem;
+}
+
+.inv-hero__desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--textGray);
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Bloques de estudio */
+.inv-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 5%;
+    align-items: center;
+}
+
+.inv-block--reverse {
+    direction: rtl;
+}
+
+.inv-block--reverse > * {
+    direction: ltr;
+}
+
+.inv-block__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.inv-block__instruments-label {
+    font-size: 1rem;
+    color: var(--textGray);
+    margin-bottom: 1rem;
+    border-left: none;
+    padding-left: 0;
+}
+
+.inv-instruments {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.inv-instruments li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background-color: var(--colorCard);
+    border-radius: 8px;
+    border-left: 3px solid var(--colorEnfasis);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--textWhite);
+    transition: transform 0.3s ease;
+}
+
+.inv-instruments li:hover {
+    transform: translateX(6px);
+}
+
+.inv-instruments li i {
+    color: var(--colorEnfasis);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Media containers */
+.inv-block__media {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inv-block__media lite-youtube {
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.inv-block__media--horizontal {
+    aspect-ratio: 16 / 9;
+}
+
+.inv-block__media--square {
+    aspect-ratio: 1;
+    max-width: 500px;
+}
+
+.inv-block__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.inv-block__media:hover img {
+    transform: scale(1.03);
+    filter: brightness(1);
+}
+
+/* CTA centrado */
+.inv-cta {
+    text-align: center;
+    margin: 2rem 0 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .inv-hero {
+        margin-bottom: 2.5rem;
+    }
+
+    .inv-hero .service-title {
+        font-size: 2.5rem;
+    }
+
+    .inv-block {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .inv-block--reverse {
+        direction: ltr;
+    }
+
+    .inv-block__media {
+        order: -1;
+    }
+
+    .inv-block__media--square {
+        max-width: 100%;
+    }
+}
+
+
 /* EFECTO */
 /* 2. La magia de las capas */
 .screen {
