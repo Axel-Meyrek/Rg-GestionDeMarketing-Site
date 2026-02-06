@@ -95,7 +95,39 @@
     font-size: 0.95rem;
     color: var(--textGray);
     line-height: 1.6;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+}
+
+/* Botón Ver más */
+.btn-ver-mas {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    color: #121212;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-ver-mas:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(244, 167, 28, 0.3);
+}
+
+.btn-ver-mas i {
+    font-size: 0.8rem;
+    color: #121212;
+    transition: transform 0.3s ease;
+}
+
+.btn-ver-mas:hover i {
+    transform: translateX(4px);
 }
 
 /* SECCIÓN POR QUÉ ES IMPORTANTE */
