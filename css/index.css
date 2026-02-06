@@ -83,6 +83,7 @@ p {
     color: #d4d4d4;
     /* Un gris suave para leer mejor */
     font-weight: var(--weightLightParagraph);
+    text-wrap: pretty;
 }
 
 h1,
@@ -92,6 +93,8 @@ h3 {
     /* Títulos más compactos */
     margin-bottom: 1rem;
     color: #ffffff;
+    text-wrap: pretty;
+    
 }
 
 .main {
@@ -673,6 +676,10 @@ h3 {
     .quote-break h2 {
         font-size: 1.8rem;
     }
+}
+
+.quote-break .slogan {
+  line-height: 1.2;
 }
 
 

@@ -205,17 +205,6 @@
     overflow: hidden;
 }
 
-.quote-break h2 {
-    font-size: 2.3rem;
-    max-width: 800px;
-    margin: 0 auto;
-    font-weight: 300;
-    /* Letra más fina para elegancia */
-    font-style: italic;
-    position: relative;
-    z-index: 2;
-    line-height: 180%;
-}
 
 .quote-break span {
     display: block;
