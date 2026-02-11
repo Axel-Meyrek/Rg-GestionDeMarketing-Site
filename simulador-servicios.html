@@ -69,9 +69,9 @@
                     class="simulador-textarea"
                     id="negocioInput"
                     placeholder="Ej: Tengo una cafeter&iacute;a artesanal en el centro de la ciudad. Llevamos 2 a&ntilde;os operando, tenemos presencia b&aacute;sica en Instagram pero queremos crecer y llegar a m&aacute;s clientes j&oacute;venes..."
-                    maxlength="2000"
+                    maxlength="500"
                 ></textarea>
-                <div class="char-counter" id="charCounter">0 / 2000</div>
+                <div class="char-counter" id="charCounter">0 / 500</div>
                 <div class="simulador-actions">
                     <button class="btn-analizar" id="btnAnalizar" disabled>
                         <span class="spinner"></span>
@@ -224,9 +224,9 @@
     /* Contador de caracteres y habilitación del botón */
     negocioInput.addEventListener('input', function() {
         const len = this.value.length;
-        charCounter.textContent = len + ' / 2000';
+        charCounter.textContent = len + ' / 500';
         charCounter.classList.toggle('active', len > 0);
-        charCounter.classList.toggle('warning', len >= 1900);
+        charCounter.classList.toggle('warning', len >= 450);
         btnAnalizar.disabled = len < 20;
     });
 
