@@ -166,31 +166,6 @@
     to { transform: rotate(360deg); }
 }
 
-/* Sugerencias/ejemplos */
-.simulador-hints {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.hint-chip {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    color: var(--textGray);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.hint-chip:hover {
-    background-color: rgba(246, 207, 61, 0.1);
-    border-color: var(--colorEnfasis);
-    color: var(--colorEnfasis);
-}
-
 /* --- ESTADO DE CARGA --- */
 .loading-section {
     display: none;
@@ -554,7 +529,4 @@
         font-size: 1.8rem;
     }
 
-    .simulador-hints {
-        justify-content: center;
-    }
 }

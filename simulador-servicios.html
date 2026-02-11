@@ -72,15 +72,6 @@
                     maxlength="2000"
                 ></textarea>
                 <div class="char-counter" id="charCounter">0 / 2000</div>
-
-                <!-- Sugerencias rápidas -->
-                <div class="simulador-hints">
-                    <span class="hint-chip" data-hint="Tengo una tienda de ropa online que vende a todo México. Quiero aumentar ventas y posicionar mi marca.">Tienda online</span>
-                    <span class="hint-chip" data-hint="Soy dentista y tengo un consultorio privado. Necesito atraer más pacientes en mi zona.">Consultorio</span>
-                    <span class="hint-chip" data-hint="Tenemos un restaurante familiar con 5 años de operación. Queremos modernizar nuestra imagen y atraer público joven.">Restaurante</span>
-                    <span class="hint-chip" data-hint="Soy coach de vida y vendo cursos online. Quiero escalar mi negocio digital.">Negocio digital</span>
-                </div>
-
                 <div class="simulador-actions">
                     <button class="btn-analizar" id="btnAnalizar" disabled>
                         <span class="spinner"></span>
@@ -223,8 +214,6 @@
     const serviciosGrid = document.getElementById('serviciosGrid');
     const btnDescargar = document.getElementById('btnDescargar');
     const btnReiniciar = document.getElementById('btnReiniciar');
-    const hintChips = document.querySelectorAll('.hint-chip');
-
     /* Variable para guardar la descripción usada en el último análisis */
     let ultimaDescripcion = '';
 
@@ -239,15 +228,6 @@
         charCounter.classList.toggle('active', len > 0);
         charCounter.classList.toggle('warning', len >= 1900);
         btnAnalizar.disabled = len < 20;
-    });
-
-    /* Chips de sugerencia: rellenan el textarea */
-    hintChips.forEach(function(chip) {
-        chip.addEventListener('click', function() {
-            negocioInput.value = this.dataset.hint;
-            negocioInput.dispatchEvent(new Event('input'));
-            negocioInput.focus();
-        });
     });
 
     /* Botón principal de análisis */
