@@ -17,8 +17,7 @@
     <script src="./js/particles.js" defer></script>
     <!-- jsPDF para descarga en PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-    <!-- Configuración de API (no se sube al repositorio) -->
-    <script src="./config.js"></script>
+    <!-- La API key se maneja en el servidor (Vercel Serverless Function) -->
     <!-- GENERAL -->
     <title>Simulador de Servicios | RG Agencia de Marketing</title>
 </head>
@@ -320,13 +319,10 @@
             '\n\nIMPORTANTE: Responde ÚNICAMENTE con un JSON válido con esta estructura exacta, sin texto adicional antes o después:\n' +
             '{"analisis": "texto del análisis del negocio", "servicios": [{"nombre": "Nombre del servicio", "explicacion": "Por qué es prioritario"}]}';
 
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        const response = await fetch('/api/analyze', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': ANTHROPIC_API_KEY,
-                'anthropic-version': '2023-06-01',
-                'anthropic-dangerous-direct-browser-access': 'true'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 model: 'claude-sonnet-4-20250514',
