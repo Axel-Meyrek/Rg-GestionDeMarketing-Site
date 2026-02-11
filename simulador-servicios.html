@@ -15,8 +15,8 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
     <script src="./js/particles.js" defer></script>
-    <!-- html2pdf para descarga en PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <!-- jsPDF para descarga en PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <!-- Configuración de API (no se sube al repositorio) -->
     <script src="./config.js"></script>
     <!-- GENERAL -->
@@ -429,62 +429,146 @@
        convierte a PDF usando html2pdf.js (CDN).
        ============================================================ */
     function descargarResumen() {
-        /* Extraer datos del DOM actual */
         var analisis = analisisTexto.textContent;
         var cards = serviciosGrid.querySelectorAll('.servicio-card');
-        var serviciosHTML = '';
+
+        var jsPDF = window.jspdf.jsPDF;
+        var doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+        /* Paleta del sitio web */
+        var bg       = [18, 18, 18];    /* #121212 */
+        var cardBg   = [30, 30, 30];    /* #1e1e1e */
+        var accent   = [244, 167, 28];  /* #f4a71c */
+        var white    = [255, 255, 255]; /* #ffffff */
+        var textMain = [226, 232, 240]; /* #e2e8f0 */
+        var textGray = [179, 179, 179]; /* #b3b3b3 */
+        var divider  = [51, 51, 51];    /* #333333 */
+
+        var pageW = 210;
+        var pageH = 297;
+        var margin = 20;
+        var contentW = pageW - margin * 2;
+        var y = 0;
+
+        /* Pinta el fondo oscuro de la página */
+        function paintBg() {
+            doc.setFillColor(bg[0], bg[1], bg[2]);
+            doc.rect(0, 0, pageW, pageH, 'F');
+        }
+
+        /* Salto de página con fondo */
+        function checkPage(needed) {
+            if (y + needed > pageH - 20) {
+                doc.addPage();
+                paintBg();
+                y = 25;
+            }
+        }
+
+        /* Primera página */
+        paintBg();
+        y = 30;
+
+        /* ── Encabezado ── */
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(22);
+        doc.setTextColor(white[0], white[1], white[2]);
+        doc.text('RG Gesti\u00f3n de Marcas', pageW / 2, y, { align: 'center' });
+        y += 9;
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(11);
+        doc.setTextColor(textGray[0], textGray[1], textGray[2]);
+        doc.text('Reporte de An\u00e1lisis de Servicios', pageW / 2, y, { align: 'center' });
+        y += 7;
+
+        doc.setDrawColor(accent[0], accent[1], accent[2]);
+        doc.setLineWidth(0.8);
+        doc.line(pageW / 2 - 15, y, pageW / 2 + 15, y);
+        y += 14;
+
+        /* ── An\u00e1lisis del Negocio ── */
+        var textPad = 8;
+        var analisisLines = doc.splitTextToSize(analisis, contentW - textPad * 2);
+        var boxH = textPad + 9 + analisisLines.length * 5 + textPad;
+
+        checkPage(boxH);
+
+        doc.setFillColor(cardBg[0], cardBg[1], cardBg[2]);
+        doc.roundedRect(margin, y, contentW, boxH, 3, 3, 'F');
+        doc.setFillColor(accent[0], accent[1], accent[2]);
+        doc.rect(margin, y + 2, 1.2, boxH - 4, 'F');
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(13);
+        doc.setTextColor(accent[0], accent[1], accent[2]);
+        doc.text('An\u00e1lisis del Negocio', margin + textPad, y + textPad + 4);
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        doc.setTextColor(textMain[0], textMain[1], textMain[2]);
+        doc.text(analisisLines, margin + textPad, y + textPad + 13);
+
+        y += boxH + 12;
+
+        /* ── Servicios Recomendados ── */
+        checkPage(12);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(15);
+        doc.setTextColor(white[0], white[1], white[2]);
+        doc.text('Servicios Recomendados', pageW / 2, y, { align: 'center' });
+        y += 10;
 
         cards.forEach(function(card, i) {
             var nombre = card.querySelector('h3').textContent;
             var explicacion = card.querySelector('p').textContent;
-            serviciosHTML +=
-                '<div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;padding:14px;background:#1e1e1e;border-radius:10px;border-left:3px solid #f4a71c;">' +
-                    '<div style="flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,#f4a71c,#ffc107);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#121212;">' + (i + 1) + '</div>' +
-                    '<div>' +
-                        '<div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:4px;">' + escapeHTML(nombre) + '</div>' +
-                        '<div style="font-size:0.9rem;color:#b3b3b3;line-height:1.5;">' + escapeHTML(explicacion) + '</div>' +
-                    '</div>' +
-                '</div>';
+            var expLines = doc.splitTextToSize(explicacion, contentW - 24);
+            var cardH = 8 + 7 + expLines.length * 4.5 + 6;
+
+            checkPage(cardH + 4);
+
+            /* Fondo de la tarjeta */
+            doc.setFillColor(cardBg[0], cardBg[1], cardBg[2]);
+            doc.roundedRect(margin, y, contentW, cardH, 2, 2, 'F');
+            doc.setFillColor(accent[0], accent[1], accent[2]);
+            doc.rect(margin, y + 1, 0.8, cardH - 2, 'F');
+
+            /* N\u00famero */
+            doc.setFillColor(accent[0], accent[1], accent[2]);
+            doc.circle(margin + 9, y + cardH / 2, 4.5, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(11);
+            doc.setTextColor(bg[0], bg[1], bg[2]);
+            doc.text(String(i + 1), margin + 9, y + cardH / 2 + 1.5, { align: 'center' });
+
+            /* Nombre del servicio */
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(11);
+            doc.setTextColor(white[0], white[1], white[2]);
+            doc.text(nombre, margin + 18, y + 9);
+
+            /* Explicaci\u00f3n */
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9);
+            doc.setTextColor(textGray[0], textGray[1], textGray[2]);
+            doc.text(expLines, margin + 18, y + 16);
+
+            y += cardH + 4;
         });
 
-        var contenidoPDF =
-            '<div style="font-family:Poppins,Helvetica,Arial,sans-serif;background:#121212;color:#fff;padding:40px;max-width:700px;margin:0 auto;">' +
-                '<div style="text-align:center;margin-bottom:30px;">' +
-                    '<h1 style="font-size:1.8rem;font-weight:800;margin-bottom:6px;">RG Gesti&oacute;n de Marcas</h1>' +
-                    '<p style="color:#b3b3b3;font-size:0.9rem;">Reporte de An&aacute;lisis de Servicios</p>' +
-                    '<div style="width:60px;height:3px;background:#f4a71c;margin:12px auto;"></div>' +
-                '</div>' +
+        /* ── Footer ── */
+        checkPage(15);
+        y += 6;
+        doc.setDrawColor(divider[0], divider[1], divider[2]);
+        doc.setLineWidth(0.2);
+        doc.line(margin, y, pageW - margin, y);
+        y += 5;
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7);
+        doc.setTextColor(textGray[0], textGray[1], textGray[2]);
+        doc.text('Generado por RG Gesti\u00f3n de Marcas \u2014 Simulador de Servicios IA', pageW / 2, y, { align: 'center' });
 
-                '<div style="background:#1e1e1e;border-radius:12px;padding:20px;margin-bottom:24px;border-left:4px solid #f4a71c;">' +
-                    '<h2 style="font-size:1.1rem;color:#f4a71c;margin-bottom:10px;">An&aacute;lisis del Negocio</h2>' +
-                    '<p style="font-size:0.95rem;color:#d4d4d4;line-height:1.6;margin:0;">' + escapeHTML(analisis) + '</p>' +
-                '</div>' +
-
-                '<h2 style="font-size:1.2rem;margin-bottom:16px;text-align:center;">Servicios Recomendados</h2>' +
-                serviciosHTML +
-
-                '<div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #333;">' +
-                    '<p style="color:#666;font-size:0.75rem;margin:0;">Generado por RG Gesti&oacute;n de Marcas &mdash; Simulador de Servicios IA</p>' +
-                '</div>' +
-            '</div>';
-
-        /* Crear elemento temporal */
-        var container = document.createElement('div');
-        container.innerHTML = contenidoPDF;
-        document.body.appendChild(container);
-
-        /* Opciones de html2pdf */
-        var opciones = {
-            margin: 0,
-            filename: 'RG-Analisis-Servicios.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, backgroundColor: '#121212' },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-
-        html2pdf().set(opciones).from(container).save().then(function() {
-            document.body.removeChild(container);
-        });
+        doc.save('RG-Analisis-Servicios.pdf');
     }
 
     /* ============================================================
