@@ -1685,3 +1685,172 @@ h3 {
     }
 
 }
+
+/* ===========================
+   NAMING, DISEÑO Y PRODUCCIÓN
+   =========================== */
+
+.ndp-hero {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.ndp-hero .service-title {
+    margin-bottom: 1.5rem;
+}
+
+.ndp-hero__desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--textGray);
+}
+
+.ndp-section {
+    margin-bottom: 4rem;
+}
+
+.ndp-section__title {
+    font-family: var(--fontTitle);
+    font-weight: var(--weightBoldTitle);
+    font-size: 1.6rem;
+    color: var(--textWhite);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.ndp-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.ndp-logos-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: var(--colorCard);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.ndp-logos-grid img:hover {
+    transform: scale(1.03);
+}
+
+.pdf-viewer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 8px;
+    background: var(--colorCard);
+}
+
+@media (max-width: 768px) {
+    .pdf-viewer {
+        height: 400px;
+    }
+}
+
+.ndp-proceso-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ndp-proceso-col img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.ndp-redesign-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.ndp-redesign-row__item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ndp-redesign-row__item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.ndp-redesign-row__label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: var(--colorEnfasis);
+    color: var(--colorBlack);
+    font-family: var(--fontTitle);
+    font-weight: var(--weightSemiBoldParagraph);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+}
+
+.ndp-corporativa-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.ndp-corporativa-row img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.ndp-videos-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.ndp-videos-row lite-youtube {
+    border-radius: 8px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .ndp-hero {
+        margin-bottom: 2.5rem;
+    }
+
+    .ndp-hero .service-title {
+        font-size: 2.5rem;
+    }
+
+    .ndp-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ndp-redesign-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ndp-corporativa-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ndp-videos-row {
+        grid-template-columns: 1fr;
+    }
+}
