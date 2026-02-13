@@ -153,3 +153,96 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, 5000);
+
+
+        /* ===========================
+           GESTIÓN DE REDES SOCIALES - FOLDERS
+           =========================== */
+
+        const redesProyectos = {
+            proyecto1: {
+                nombre: "Proyecto 1",
+                desc: "Gestión integral de redes sociales para potenciar la presencia digital de la marca, incluyendo creación de contenido y estrategia de publicación.",
+                imgs: [
+                    "./img/redesSociales/proyecto1/proyecto1-1.webp",
+                    "./img/redesSociales/proyecto1/proyecto1-2.webp",
+                    "./img/redesSociales/proyecto1/proyecto1-3.webp",
+                    "./img/redesSociales/proyecto1/proyecto1-4.webp",
+                ]
+            },
+            proyecto2: {
+                nombre: "Proyecto 2",
+                desc: "Desarrollo de campañas publicitarias en redes sociales con enfoque en engagement y conversión de audiencia objetivo.",
+                imgs: [
+                    "./img/redesSociales/proyecto2/proyecto2-1.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-2.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-3.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-4.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-5.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-6.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-7.webp",
+                    "./img/redesSociales/proyecto2/proyecto2-8.webp",
+                ]
+            },
+            proyecto3: {
+                nombre: "Proyecto 3",
+                desc: "Estrategia de contenido visual y community management para fortalecer la identidad de marca en plataformas digitales.",
+                imgs: [
+                    "./img/redesSociales/proyecto3/proyecto3-1.webp",
+                    "./img/redesSociales/proyecto3/proyecto3-2.webp",
+                    "./img/redesSociales/proyecto3/proyecto3-3.webp",
+                    "./img/redesSociales/proyecto3/proyecto3-4.webp",
+                ]
+            }
+        };
+
+        const redesFolders = document.querySelectorAll('.redes-folder');
+        const redesPanel = document.getElementById('redes-project-panel');
+        const redesDesc = document.getElementById('redes-project-desc');
+        const redesGallery = document.getElementById('redes-project-gallery');
+        const redesCloseBtn = redesPanel ? redesPanel.querySelector('.redes-project__close') : null;
+
+        function openRedesProject(projectKey) {
+            const project = redesProyectos[projectKey];
+            if (!project) return;
+
+            redesDesc.textContent = project.desc;
+            redesGallery.innerHTML = '';
+            project.imgs.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = project.nombre;
+                img.loading = 'lazy';
+                redesGallery.appendChild(img);
+            });
+
+            redesPanel.style.display = 'block';
+            redesPanel.style.animation = 'none';
+            redesPanel.offsetHeight; // force reflow
+            redesPanel.style.animation = '';
+        }
+
+        function closeRedesProject() {
+            redesPanel.style.display = 'none';
+            redesFolders.forEach(f => f.classList.remove('active'));
+        }
+
+        redesFolders.forEach(folder => {
+            folder.addEventListener('click', () => {
+                const projectKey = folder.dataset.project;
+                const wasActive = folder.classList.contains('active');
+
+                redesFolders.forEach(f => f.classList.remove('active'));
+
+                if (wasActive) {
+                    closeRedesProject();
+                } else {
+                    folder.classList.add('active');
+                    openRedesProject(projectKey);
+                }
+            });
+        });
+
+        if (redesCloseBtn) {
+            redesCloseBtn.addEventListener('click', closeRedesProject);
+        }

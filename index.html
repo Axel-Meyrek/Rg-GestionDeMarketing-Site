@@ -446,20 +446,41 @@
     <div id="sec-redes" class="screen">
         <section class="service-section-A">
             <div class="back-btn-container"><button onclick="goBack()" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</button></div>
-            <div class="content-wrapper">
-                <div class="info-col">
-                    <h2 class="service-title">Gestión de <span>Redes Sociales</span></h2>
-                    <p class="service-description">
-                        Creamos un plan personalizado de acuerdo con las necesidades de tu marca para aumentar la visibilidad de tu negocio, construir una reputación sólida y permitir la interacción directa con tus consumidores.
-                    </p>
-                    <a href="./contacto.html" class="cta-button">Contactar ahora</a>
+
+            <!-- Hero centrado -->
+            <div class="redes-hero">
+                <h2 class="service-title">Gestión de <span>Redes Sociales</span></h2>
+                <p class="redes-hero__desc">
+                    Creamos un plan personalizado de acuerdo con las necesidades de tu marca para aumentar la visibilidad de tu negocio, construir una reputación sólida y permitir la interacción directa con tus consumidores.
+                </p>
+            </div>
+
+            <!-- Grid de carpetas -->
+            <div class="redes-folders">
+                <div class="redes-folder" data-project="proyecto1">
+                    <div class="redes-folder__icon"><i class="fas fa-folder"></i></div>
+                    <span class="redes-folder__name">Proyecto 1</span>
                 </div>
-                <div class="gallery-col">
-                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales1.webp" alt="Redes Sociales 1"></div>
-                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales2.webp" alt="Redes Sociales 2"></div>
-                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales3.webp" alt="Redes Sociales 3"></div>
-                    <div class="gallery-item"><img src="./img/redesSociales/redesSociales4.webp" alt="Redes Sociales 4"></div>
+                <div class="redes-folder" data-project="proyecto2">
+                    <div class="redes-folder__icon"><i class="fas fa-folder"></i></div>
+                    <span class="redes-folder__name">Proyecto 2</span>
                 </div>
+                <div class="redes-folder" data-project="proyecto3">
+                    <div class="redes-folder__icon"><i class="fas fa-folder"></i></div>
+                    <span class="redes-folder__name">Proyecto 3</span>
+                </div>
+            </div>
+
+            <!-- Panel de proyecto (oculto por defecto) -->
+            <div class="redes-project" id="redes-project-panel" style="display:none;">
+                <button class="redes-project__close"><i class="fas fa-times"></i></button>
+                <p class="redes-project__desc" id="redes-project-desc"></p>
+                <div class="redes-project__gallery" id="redes-project-gallery"></div>
+            </div>
+
+            <!-- CTA -->
+            <div class="inv-cta">
+                <a href="./contacto.html" class="cta-button">Contactar ahora</a>
             </div>
 
             <div class="brand-carousel">

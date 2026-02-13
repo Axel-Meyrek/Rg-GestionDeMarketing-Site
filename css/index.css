@@ -1198,6 +1198,185 @@ h3 {
 }
 
 
+/* ===========================
+   GESTIÓN DE REDES SOCIALES - FOLDERS
+   =========================== */
+
+/* Hero centrado */
+.redes-hero {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.redes-hero .service-title {
+    margin-bottom: 1.5rem;
+}
+
+.redes-hero__desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--textGray);
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Grid de carpetas */
+.redes-folders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    padding: 0 5%;
+}
+
+.redes-folder {
+    background-color: var(--colorCard);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.redes-folder:hover {
+    border-color: var(--colorEnfasis);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(246, 207, 61, 0.1);
+}
+
+.redes-folder.active {
+    border-color: var(--colorEnfasis);
+    box-shadow: 0 8px 24px rgba(246, 207, 61, 0.15);
+}
+
+.redes-folder__icon {
+    margin-bottom: 0.75rem;
+}
+
+.redes-folder__icon i {
+    font-size: 2.5rem;
+    color: var(--colorEnfasis);
+    transition: transform 0.3s ease;
+}
+
+.redes-folder.active .redes-folder__icon i::before {
+    content: "\f07c";
+}
+
+.redes-folder__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--textWhite);
+    display: block;
+}
+
+/* Panel de proyecto */
+.redes-project {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 2rem 5%;
+    position: relative;
+    animation: redesFadeIn 0.4s ease-out;
+}
+
+@keyframes redesFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.redes-project__close {
+    position: absolute;
+    top: 1rem;
+    right: 5%;
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--textWhite);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.redes-project__close:hover {
+    border-color: var(--colorEnfasis);
+    color: var(--colorEnfasis);
+}
+
+.redes-project__desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--textGray);
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--colorEnfasis);
+    padding-left: 1.5rem;
+}
+
+.redes-project__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.redes-project__gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.redes-project__gallery img:hover {
+    transform: scale(1.03);
+    filter: brightness(1);
+}
+
+/* Responsive - Redes */
+@media (max-width: 768px) {
+    .redes-folders {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .redes-hero .service-title {
+        font-size: 2.5rem;
+    }
+
+    .redes-folder {
+        padding: 1.5rem 1rem;
+    }
+
+    .redes-folder__icon i {
+        font-size: 2rem;
+    }
+
+    .redes-project__gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .redes-folders {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* EFECTO */
 /* 2. La magia de las capas */
 .screen {
