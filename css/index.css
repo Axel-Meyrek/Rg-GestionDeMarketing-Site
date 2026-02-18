@@ -941,8 +941,8 @@ h3 {
 
 .brand-track {
     display: flex;
-    width: calc(160px * 50);
-    animation: scroll 50s linear infinite;
+    width: calc(160px * 22);
+    animation: scroll 30s linear infinite;
 }
 
 .brand-item {
@@ -975,7 +975,7 @@ h3 {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-160px * 25));
+        transform: translateX(calc(-160px * 11));
     }
 }
 
