@@ -613,12 +613,24 @@
         </section>
     </div>
     <!-- FLOATING SOCIAL ICONS -->
-    <div class="floating-social">
+    <div class="floating-social" id="floatingSocial">
         <a href="#" aria-label="Facebook" class="floating-social__link"><i class="fab fa-facebook-f"></i></a>
         <a href="#" aria-label="Instagram" class="floating-social__link"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="LinkedIn" class="floating-social__link"><i class="fab fa-linkedin-in"></i></a>
         <a href="#" aria-label="TikTok" class="floating-social__link"><i class="fab fa-tiktok"></i></a>
+        <button class="floating-social__toggle" aria-label="Ver redes sociales">
+            <i class="fas fa-share-alt floating-social__icon-open"></i>
+            <i class="fas fa-times floating-social__icon-close"></i>
+        </button>
     </div>
+    <script>
+        (function () {
+            var social = document.getElementById('floatingSocial');
+            social.querySelector('.floating-social__toggle').addEventListener('click', function () {
+                social.classList.toggle('is-open');
+            });
+        })();
+    </script>
 
 </body>
 </html>
