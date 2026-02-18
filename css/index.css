@@ -1900,3 +1900,38 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== FLOATING SOCIAL ICONS ===== */
+.floating-social {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.floating-social__link {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.floating-social__link:hover {
+    background-color: var(--colorEnfasis);
+    border-color: var(--colorEnfasis);
+    color: var(--colorbackground);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(246, 207, 61, 0.3);
+}
