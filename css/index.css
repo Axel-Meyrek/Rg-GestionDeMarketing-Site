@@ -424,8 +424,10 @@ h3 {
     color: var(--colorbackground);
     text-decoration: none;
     font-family: sans-serif;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     transition: opacity 0.3s;
 }
 
