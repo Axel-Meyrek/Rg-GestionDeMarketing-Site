@@ -386,31 +386,30 @@
     font-size: 1rem;
 }
 
-.btn-reiniciar {
+.btn-cotizacion {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 14px 30px;
-    background-color: transparent;
-    border: 2px solid var(--colorEnfasis);
-    color: var(--colorEnfasis);
+    background-color: #25D366;
+    border: none;
+    color: #fff;
     border-radius: 50px;
     font-weight: 700;
     font-size: 1rem;
     font-family: var(--fontParagraph);
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.btn-reiniciar:hover {
-    background-color: var(--colorEnfasis);
-    color: var(--colorbackground);
+.btn-cotizacion:hover {
+    background-color: #1DA851;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
 }
 
-.btn-reiniciar i {
-    font-size: 1rem;
+.btn-cotizacion i {
+    font-size: 1.2rem;
 }
 
 /* --- ERROR --- */
@@ -518,7 +517,7 @@
     }
 
     .btn-descargar,
-    .btn-reiniciar {
+    .btn-cotizacion {
         justify-content: center;
         text-align: center;
     }

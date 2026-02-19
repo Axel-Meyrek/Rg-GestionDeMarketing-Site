@@ -130,8 +130,8 @@
                 <button class="btn-descargar" id="btnDescargar">
                     <i class="fas fa-download"></i> Descargar resumen
                 </button>
-                <button class="btn-reiniciar" id="btnReiniciar">
-                    <i class="fas fa-redo"></i> Nuevo an&aacute;lisis
+                <button class="btn-cotizacion" id="btnCotizacion">
+                    <i class="fab fa-whatsapp"></i> Solicitar una cotizaci&oacute;n
                 </button>
             </div>
         </section>
@@ -211,7 +211,8 @@
     const analisisTexto = document.getElementById('analisisTexto');
     const serviciosGrid = document.getElementById('serviciosGrid');
     const btnDescargar = document.getElementById('btnDescargar');
-    const btnReiniciar = document.getElementById('btnReiniciar');
+    const btnCotizacion = document.getElementById('btnCotizacion');
+    const WHATSAPP_NUMBER = '522224602462';
     /* Variable para guardar la descripción usada en el último análisis */
     let ultimaDescripcion = '';
 
@@ -238,13 +239,9 @@
         analizarNegocio();
     });
 
-    /* Nuevo análisis */
-    btnReiniciar.addEventListener('click', function() {
-        mostrarEstado('form');
-        negocioInput.value = '';
-        negocioInput.dispatchEvent(new Event('input'));
-        negocioInput.focus();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    /* Solicitar cotización por WhatsApp */
+    btnCotizacion.addEventListener('click', function() {
+        enviarCotizacionWhatsApp();
     });
 
     /* Descargar resumen en PDF */
@@ -543,6 +540,34 @@
         doc.text('Generado por RG Gesti\u00f3n de Marcas \u2014 Simulador de Servicios IA', pageW / 2, y, { align: 'center' });
 
         doc.save('RG-Analisis-Servicios.pdf');
+    }
+
+    /* ============================================================
+       ENVIAR COTIZACIÓN POR WHATSAPP
+       ============================================================ */
+    function enviarCotizacionWhatsApp() {
+        var analisis = analisisTexto.textContent;
+        var cards = serviciosGrid.querySelectorAll('.servicio-card');
+
+        /* Construir lista de servicios con números emoji */
+        var numerosEmoji = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣'];
+        var listaServicios = '';
+        cards.forEach(function(card, i) {
+            var nombre = card.querySelector('h3').textContent;
+            var emoji = numerosEmoji[i] || (i + 1) + '.';
+            listaServicios += emoji + ' ' + nombre + '\n';
+        });
+
+        /* Construir mensaje profesional */
+        var mensaje = '🚀 *Solicitud de Cotización — RG Gestión de Marcas*\n\n' +
+            'Hola, me interesa solicitar una cotización basada en el análisis de mi negocio realizado con su simulador de servicios IA.\n\n' +
+            '📋 *Análisis de mi negocio:*\n' + analisis + '\n\n' +
+            '⭐ *Servicios recomendados:*\n' + listaServicios + '\n' +
+            '💬 Quedo atento a su respuesta. ¡Gracias!';
+
+        /* Abrir WhatsApp con el mensaje */
+        var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(mensaje);
+        window.open(url, '_blank');
     }
 
     /* ============================================================
