@@ -1578,6 +1578,10 @@ h3 {
     transition: background 0.3s;
 }
 
+.btn-back i {
+    color: inherit;
+}
+
 
 /* ===========================
    FOOTER
