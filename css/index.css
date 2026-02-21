@@ -808,6 +808,8 @@ h3 {
     flex-direction: column;
     justify-content: center;
     padding: 4rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     background-color: var(--colorbackground);
 }
@@ -1278,57 +1280,117 @@ h3 {
     padding-left: 0;
 }
 
-/* Grid de carpetas */
-.redes-folders {
-    display: flex;
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto 2rem;
+/* Showcase de clientes */
+.clientes-showcase {
+    max-width: 960px;
+    margin: 0 auto 2.5rem;
     padding: 0 5%;
 }
 
-.redes-folder {
-    flex: 1;
-    min-width: 0;
-    background-color: var(--colorCard);
-    border: 2px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 2rem 1.5rem;
+.clientes-showcase__label {
     text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--textGray);
+    margin-bottom: 2rem;
+}
+
+.clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.cliente-card {
+    position: relative;
+    background: var(--colorCard);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 2.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
     cursor: pointer;
-    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.redes-folder:hover {
-    border-color: var(--colorEnfasis);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(246, 207, 61, 0.1);
+.cliente-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--colorEnfasis);
+    transition: width 0.45s ease;
 }
 
-.redes-folder.active {
-    border-color: var(--colorEnfasis);
-    box-shadow: 0 8px 24px rgba(246, 207, 61, 0.15);
+.cliente-card:hover::after,
+.cliente-card.active::after {
+    width: 100%;
 }
 
-.redes-folder__icon {
-    margin-bottom: 0.75rem;
+.cliente-card:hover {
+    border-color: rgba(246, 207, 61, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-.redes-folder__icon i {
-    font-size: 2.5rem;
-    color: var(--colorEnfasis);
+.cliente-card.active {
+    border-color: rgba(246, 207, 61, 0.5);
+    box-shadow: 0 8px 28px rgba(246, 207, 61, 0.12);
+    transform: translateY(-6px);
+}
+
+.cliente-card__logo {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cliente-card__logo img {
+    max-height: 70px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.65);
+    transition: filter 0.4s ease;
+}
+
+.cliente-card:hover .cliente-card__logo img,
+.cliente-card.active .cliente-card__logo img {
+    filter: grayscale(0%) brightness(1);
+}
+
+.cliente-card__cta {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: color 0.3s ease;
+}
+
+.cliente-card__cta i {
+    font-size: 0.6rem;
     transition: transform 0.3s ease;
 }
 
-.redes-folder.active .redes-folder__icon i::before {
-    content: "\f07c";
+.cliente-card:hover .cliente-card__cta,
+.cliente-card.active .cliente-card__cta {
+    color: var(--colorEnfasis);
 }
 
-.redes-folder__name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--textWhite);
-    display: block;
+.cliente-card:hover .cliente-card__cta i,
+.cliente-card.active .cliente-card__cta i {
+    transform: translateX(4px);
 }
 
 /* Panel de proyecto */
@@ -1374,6 +1436,15 @@ h3 {
     color: var(--colorEnfasis);
 }
 
+.redes-project__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--textWhite);
+    margin-bottom: 0.75rem;
+    padding-right: 2.5rem;
+    letter-spacing: 0.01em;
+}
+
 .redes-project__desc {
     font-size: 1.05rem;
     line-height: 1.7;
@@ -1385,16 +1456,16 @@ h3 {
 
 .redes-project__gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
 .redes-project__gallery img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, filter 0.4s ease;
     filter: brightness(0.9) contrast(1.1);
 }
 
@@ -1403,49 +1474,109 @@ h3 {
     filter: brightness(1);
 }
 
+/* Videos TikTok */
+.redes-project__videos-section {
+    margin-top: 2.5rem;
+}
+
+.redes-project__videos-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--colorEnfasis);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.redes-project__videos-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: var(--colorEnfasis);
+    border-radius: 2px;
+}
+
+.redes-project__videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.redes-project__video-wrap {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0a0a0a;
+    aspect-ratio: 9 / 16;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 260px;
+    justify-self: center;
+    width: 100%;
+}
+
+/* lite-youtube ocupa todo el wrapper y anula su propio padding-bottom 16:9 */
+.redes-project__video-wrap lite-youtube {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+}
+
+.redes-project__video-wrap lite-youtube::after {
+    display: none;
+}
+
+.redes-project__video-wrap lite-youtube > iframe {
+    border-radius: 18px;
+}
+
 /* Responsive - Redes */
 @media (max-width: 768px) {
-    .redes-folders {
-        gap: 0.75rem;
+    .clientes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .redes-hero .service-title {
         font-size: 2.5rem;
     }
 
-    .redes-folder {
-        padding: 1rem 0.5rem;
-    }
-
-    .redes-folder__icon i {
-        font-size: 1.8rem;
-    }
-
-    .redes-folder__name {
-        font-size: 0.8rem;
-    }
-
     .redes-project__gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .redes-project__videos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .redes-project__video-wrap {
+        max-width: 180px;
     }
 }
 
 @media (max-width: 480px) {
-    .redes-folders {
-        gap: 0.5rem;
+    .clientes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
     }
 
-    .redes-folder {
-        padding: 0.75rem 0.4rem;
-        border-radius: 8px;
+    .cliente-card {
+        padding: 1.75rem 1rem 1.25rem;
+        border-radius: 12px;
     }
 
-    .redes-folder__icon i {
-        font-size: 1.4rem;
+    .cliente-card__logo {
+        height: 52px;
     }
 
-    .redes-folder__name {
-        font-size: 0.7rem;
+    .cliente-card__logo img {
+        max-height: 52px;
     }
 }
 
@@ -1784,7 +1915,10 @@ h3 {
 }
 
 .ndp-section {
-    margin-bottom: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 5rem;
 }
 
 .ndp-section__title {
@@ -1920,6 +2054,64 @@ h3 {
     border-radius: 8px;
 }
 
+/* Diseño de imagen corporativa */
+.ndp-dic-desc {
+    color: var(--textGray);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.ndp-dic-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: stretch;
+}
+
+.ndp-dic-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Imagen CON fondo: card limpia con sombra elegante */
+.ndp-dic-card--solid {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ndp-dic-card--solid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 4/3;
+}
+
+/* Imagen SIN fondo: card con gradiente acento dorado sutil */
+.ndp-dic-card--transparent {
+    background: radial-gradient(ellipse at center,
+        rgba(244, 167, 28, 0.07) 0%,
+        rgba(18, 18, 18, 0.6) 100%);
+    border: 1px solid rgba(244, 167, 28, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    min-height: 250px;
+}
+
+.ndp-dic-card--transparent img {
+    width: 100%;
+    max-width: 85%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 28px rgba(244, 167, 28, 0.15));
+}
+
 .ndp-videos-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1952,7 +2144,109 @@ h3 {
         grid-template-columns: 1fr;
     }
 
+    .ndp-dic-imgs {
+        grid-template-columns: 1fr;
+    }
+
+    .ndp-dic-card--transparent {
+        min-height: 200px;
+    }
+
     .ndp-videos-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === PASOS CREACIÓN DE LOGO === */
+.ndp-proceso-section {
+    max-width: 1000px;
+    margin: 0 auto 5rem;
+}
+
+.ndp-pasos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.ndp-paso {
+    background: var(--colorCard);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    gap: 0;
+}
+
+.ndp-paso:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    border-color: rgba(255, 255, 255, 0.13);
+}
+
+.ndp-paso__img-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
+}
+
+.ndp-paso__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.ndp-paso:hover .ndp-paso__img-wrap img {
+    transform: scale(1.05);
+}
+
+.ndp-paso__content {
+    padding: 1.25rem 0.75rem 0.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ndp-paso__num {
+    font-family: var(--fontTitle);
+    font-weight: var(--weightBoldTitle);
+    font-size: 2.8rem;
+    color: var(--colorEnfasis);
+    line-height: 1;
+    letter-spacing: -1px;
+    opacity: 0.85;
+}
+
+.ndp-paso__title {
+    font-family: var(--fontTitle);
+    font-weight: var(--weightSemiBoldParagraph);
+    font-size: 1.1rem;
+    color: var(--textWhite);
+    margin-bottom: 0.35rem;
+}
+
+.ndp-paso__desc {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: var(--textGray);
+}
+
+.ndp-paso--highlight {
+    border: 1px solid rgba(246, 207, 61, 0.35);
+}
+
+.ndp-paso--highlight .ndp-paso__num {
+    color: var(--colorComplementario);
+}
+
+@media (max-width: 768px) {
+    .ndp-pasos-grid {
         grid-template-columns: 1fr;
     }
 }

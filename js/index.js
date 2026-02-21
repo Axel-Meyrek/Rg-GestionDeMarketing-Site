@@ -156,22 +156,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         /* ===========================
-           GESTIÓN DE REDES SOCIALES - FOLDERS
+           GESTIÓN DE REDES SOCIALES - CLIENTES
            =========================== */
 
         const redesProyectos = {
             proyecto1: {
-                nombre: "Proyecto 1",
+                nombre: "Cliente 1",
                 desc: "Gestión integral de redes sociales para potenciar la presencia digital de la marca, incluyendo creación de contenido y estrategia de publicación.",
                 imgs: [
                     "./img/redesSociales/proyecto1/proyecto1-1.webp",
                     "./img/redesSociales/proyecto1/proyecto1-2.webp",
                     "./img/redesSociales/proyecto1/proyecto1-3.webp",
                     "./img/redesSociales/proyecto1/proyecto1-4.webp",
-                ]
+                ],
+                // IDs de YouTube Shorts (parte después de /shorts/ en la URL)
+                videos: []
             },
             proyecto2: {
-                nombre: "Proyecto 2",
+                nombre: "Cliente 2",
                 desc: "Desarrollo de campañas publicitarias en redes sociales con enfoque en engagement y conversión de audiencia objetivo.",
                 imgs: [
                     "./img/redesSociales/proyecto2/proyecto2-1.webp",
@@ -182,31 +184,58 @@ document.addEventListener('DOMContentLoaded', function() {
                     "./img/redesSociales/proyecto2/proyecto2-6.webp",
                     "./img/redesSociales/proyecto2/proyecto2-7.webp",
                     "./img/redesSociales/proyecto2/proyecto2-8.webp",
+                ],
+                videos: [
+                    "Mv_exXyVVtM",
+                    "sy5s0U08lPY",
                 ]
             },
             proyecto3: {
-                nombre: "Proyecto 3",
+                nombre: "Cliente 3",
                 desc: "Estrategia de contenido visual y community management para fortalecer la identidad de marca en plataformas digitales.",
                 imgs: [
                     "./img/redesSociales/proyecto3/proyecto3-1.webp",
                     "./img/redesSociales/proyecto3/proyecto3-2.webp",
                     "./img/redesSociales/proyecto3/proyecto3-3.webp",
                     "./img/redesSociales/proyecto3/proyecto3-4.webp",
+                ],
+                videos: [
+                    "WZmUABtlEr4",
+                ]
+            },
+            proyecto4: {
+                nombre: "Cliente 4",
+                desc: "Planificación y ejecución de estrategia digital integral: gestión de comunidad, contenido de marca y análisis de métricas para maximizar el alcance orgánico.",
+                imgs: [
+                    "./img/redesSociales/proyecto4/proyecto4-1.webp",
+                    "./img/redesSociales/proyecto4/proyecto4-2.webp",
+                    "./img/redesSociales/proyecto4/proyecto4-3.webp",
+                    "./img/redesSociales/proyecto4/proyecto4-4.webp",
+                ],
+                videos: [
+                    "QgN12LDq8Qc",
+                    "ycP9dZzCP2E",
                 ]
             }
         };
 
-        const redesFolders = document.querySelectorAll('.redes-folder');
+        const redesFolders = document.querySelectorAll('.cliente-card');
         const redesPanel = document.getElementById('redes-project-panel');
+        const redesTitle = document.getElementById('redes-project-title');
         const redesDesc = document.getElementById('redes-project-desc');
         const redesGallery = document.getElementById('redes-project-gallery');
+        const redesVideosSection = document.getElementById('redes-project-videos-section');
+        const redesVideos = document.getElementById('redes-project-videos');
         const redesCloseBtn = redesPanel ? redesPanel.querySelector('.redes-project__close') : null;
 
         function openRedesProject(projectKey) {
             const project = redesProyectos[projectKey];
             if (!project) return;
 
+            if (redesTitle) redesTitle.textContent = project.nombre;
             redesDesc.textContent = project.desc;
+
+            // Galería de imágenes (2 columnas)
             redesGallery.innerHTML = '';
             project.imgs.forEach(src => {
                 const img = document.createElement('img');
@@ -215,6 +244,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 img.loading = 'lazy';
                 redesGallery.appendChild(img);
             });
+
+            // Videos verticales estilo TikTok (YouTube Shorts via lite-youtube)
+            redesVideos.innerHTML = '';
+            const videoList = project.videos || [];
+            if (videoList.length > 0) {
+                videoList.slice(0, 2).forEach(videoId => {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'redes-project__video-wrap';
+                    const lyt = document.createElement('lite-youtube');
+                    lyt.setAttribute('videoid', videoId);
+                    lyt.setAttribute('params', 'rel=0&playsinline=1');
+                    wrap.appendChild(lyt);
+                    redesVideos.appendChild(wrap);
+                });
+                redesVideosSection.style.display = '';
+            } else {
+                redesVideosSection.style.display = 'none';
+            }
 
             redesPanel.style.display = 'block';
             redesPanel.style.animation = 'none';
