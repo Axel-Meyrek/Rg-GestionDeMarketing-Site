@@ -408,6 +408,10 @@
         var analisis = analisisTexto.textContent;
         var cards = serviciosGrid.querySelectorAll('.servicio-card');
 
+        var logoImg = new Image();
+        logoImg.src = './img/logoRG.png';
+        logoImg.onload = function() {
+
         var jsPDF = window.jspdf.jsPDF;
         var doc = new jsPDF({ unit: 'mm', format: 'a4' });
 
@@ -426,6 +430,9 @@
         var contentW = pageW - margin * 2;
         var y = 0;
 
+        var logoW = 28;
+        var logoH = 16;
+
         /* Pinta el fondo oscuro de la página */
         function paintBg() {
             doc.setFillColor(bg[0], bg[1], bg[2]);
@@ -437,12 +444,14 @@
             if (y + needed > pageH - 20) {
                 doc.addPage();
                 paintBg();
+                doc.addImage(logoImg, 'PNG', pageW - margin - logoW, 7, logoW, logoH);
                 y = 25;
             }
         }
 
         /* Primera página */
         paintBg();
+        doc.addImage(logoImg, 'PNG', pageW - margin - logoW, 7, logoW, logoH);
         y = 30;
 
         /* ── Encabezado ── */
@@ -532,6 +541,21 @@
             y += cardH + 4;
         });
 
+        /* ── Llamada a la acción ── */
+        checkPage(28);
+        doc.setFillColor(accent[0], accent[1], accent[2]);
+        doc.roundedRect(margin, y, contentW, 22, 3, 3, 'F');
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.setTextColor(bg[0], bg[1], bg[2]);
+        doc.text('\u00bfListo para dar el siguiente paso?', pageW / 2, y + 8, { align: 'center' });
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.text('Envi\u00e1nos este documento y nos ponemos en contacto para hacerte una cotizaci\u00f3n personalizada.', pageW / 2, y + 14, { align: 'center' });
+        y += 28;
+
         /* ── Footer ── */
         checkPage(15);
         y += 6;
@@ -545,6 +569,8 @@
         doc.text('Generado por RG Gesti\u00f3n de Marcas \u2014 Simulador de Servicios IA', pageW / 2, y, { align: 'center' });
 
         doc.save('RG-Analisis-Servicios.pdf');
+
+        }; /* fin logoImg.onload */
     }
 
     /* ============================================================
