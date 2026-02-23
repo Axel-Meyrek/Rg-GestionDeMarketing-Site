@@ -431,7 +431,7 @@
         var y = 0;
 
         var logoW = 28;
-        var logoH = 16;
+        var logoH = logoW * (logoImg.naturalHeight / logoImg.naturalWidth);
 
         /* Pinta el fondo oscuro de la página */
         function paintBg() {
