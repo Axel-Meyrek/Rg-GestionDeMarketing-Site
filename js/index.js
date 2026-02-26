@@ -1,5 +1,20 @@
 console.log("Hola Mundo");
 
+/* ── Toggle "Ver todos los logos" ─────────── */
+const ndpLogosToggle = document.getElementById('ndpLogosToggle');
+const ndpLogosGrid   = document.getElementById('ndpLogosGrid');
+
+if (ndpLogosToggle && ndpLogosGrid) {
+    ndpLogosToggle.addEventListener('click', () => {
+        const isOpen = ndpLogosGrid.classList.toggle('is-open');
+        ndpLogosToggle.classList.toggle('is-open', isOpen);
+        const icon = ndpLogosToggle.querySelector('i');
+        const text = ndpLogosToggle.querySelector('span');
+        icon.className = isOpen ? 'fas fa-eye-slash' : 'fas fa-eye';
+        text.textContent = isOpen ? 'Ocultar logos' : 'Ver todos los logos';
+    });
+}
+
 /* VARIABLES Y COMPONENTES */
 const groups = document.querySelectorAll('.sphere-group');
 let currentIndex = 0;
