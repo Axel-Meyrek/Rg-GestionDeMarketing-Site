@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const redesProyectos = {
             proyecto1: {
                 nombre: "Grupo Bapa",
-                desc: "Gestionamos las cuentas de Facebook, Instagram y Tiktok del Grupo Bapa, para continuar posicionar la marca e incrementar sus ventas a través de contenido visual atractivo y estrategias de interacción con la comunidad online.",
+                desc: "Gestionamos las cuentas de Facebook, Instagram y Tiktok de Grupo Bapa, para continuar posicionando la marca e incrementar sus ventas a través de contenido visual atractivo y estrategias de interacción con la comunidad online.",
                 imgs: [
                     "./img/redesSociales/proyecto2/proyecto2-1.webp",
                     "./img/redesSociales/proyecto2/proyecto2-2.webp",
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ]
             },
             proyecto4: {
-                nombre: "El Tio Poncho",
+                nombre: "Compra-Venta de Autos El Tio Poncho",
                 desc: "Gestionamos tanto campañas de promocion digital, asi como contenido en la cuenta de Facebook para lograr posicionar la marca e incrementar sus ventas.",
                 imgs: [
                     "./img/redesSociales/proyecto3/proyecto3-1.webp",
