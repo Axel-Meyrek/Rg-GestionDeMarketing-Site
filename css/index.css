@@ -1402,6 +1402,7 @@ h3 {
     padding: 2rem 5%;
     position: relative;
     animation: redesFadeIn 0.4s ease-out;
+    padding-top: 100px;
 }
 
 @keyframes redesFadeIn {
@@ -1417,7 +1418,7 @@ h3 {
 
 .redes-project__close {
     position: absolute;
-    top: 1rem;
+    top: 5rem;
     right: 5%;
     background: none;
     border: 2px solid rgba(255, 255, 255, 0.2);
