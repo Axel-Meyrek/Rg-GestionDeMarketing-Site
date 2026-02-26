@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
             redesPanel.style.animation = 'none';
             redesPanel.offsetHeight; // force reflow
             redesPanel.style.animation = '';
+            redesPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function closeRedesProject() {
