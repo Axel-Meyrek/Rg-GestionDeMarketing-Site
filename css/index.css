@@ -1699,7 +1699,6 @@ h3 {
 
 /* Botón de VOLVER (Esencial para la navegación) */
 .back-btn-container {
-    position: sticky;
     top: 0;
     background: var(--colorbackground);
     padding: 20px;
@@ -1707,6 +1706,7 @@ h3 {
     width: 100%;
     display: flex;
     align-items: center;
+    padding-top: 30px;
 }
 
 .btn-back {
