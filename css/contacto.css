@@ -146,6 +146,67 @@
     line-height: 1.4;
 }
 
+/* SOCIAL LINKS DENTRO DE INFO-CARD */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.social-link-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.social-link-row:hover {
+    background-color: rgba(246, 207, 61, 0.08);
+    border-color: rgba(246, 207, 61, 0.3);
+    transform: translateX(4px);
+}
+
+.social-link-row__icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--colorEnfasis);
+    flex-shrink: 0;
+}
+
+.social-link-row__handle {
+    font-size: 0.88rem;
+    color: var(--textGray);
+    flex: 1;
+    transition: color 0.25s ease;
+}
+
+.social-link-row:hover .social-link-row__handle {
+    color: var(--textWhite);
+}
+
+.social-link-row__arrow {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.2);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.social-link-row:hover .social-link-row__arrow {
+    color: var(--colorEnfasis);
+    transform: translateX(3px);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .contacto-header h1 {
