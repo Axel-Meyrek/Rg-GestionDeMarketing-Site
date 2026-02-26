@@ -1297,12 +1297,14 @@ h3 {
 }
 
 .clientes-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.25rem;
+    justify-content: center;
 }
 
 .cliente-card {
+    flex: 0 0 calc((100% - 2.5rem) / 3);
     position: relative;
     background: var(--colorCard);
     border: 1px solid rgba(255, 255, 255, 0.07);
@@ -1454,6 +1456,11 @@ h3 {
     padding-left: 1.5rem;
 }
 
+.social-highlight {
+    color: var(--colorEnfasis);
+    font-weight: 600;
+}
+
 .redes-project__gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1539,8 +1546,11 @@ h3 {
 /* Responsive - Redes */
 @media (max-width: 768px) {
     .clientes-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+    }
+
+    .cliente-card {
+        flex: 0 0 calc((100% - 1rem) / 2);
     }
 
     .redes-hero .service-title {
@@ -1562,8 +1572,11 @@ h3 {
 
 @media (max-width: 480px) {
     .clientes-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;
+    }
+
+    .cliente-card {
+        flex: 0 0 calc((100% - 0.75rem) / 2);
     }
 
     .cliente-card {

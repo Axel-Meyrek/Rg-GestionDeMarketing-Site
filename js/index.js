@@ -161,20 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const redesProyectos = {
             proyecto1: {
-                nombre: "Cliente 1",
-                desc: "Gestión integral de redes sociales para potenciar la presencia digital de la marca, incluyendo creación de contenido y estrategia de publicación.",
-                imgs: [
-                    "./img/redesSociales/proyecto1/proyecto1-1.webp",
-                    "./img/redesSociales/proyecto1/proyecto1-2.webp",
-                    "./img/redesSociales/proyecto1/proyecto1-3.webp",
-                    "./img/redesSociales/proyecto1/proyecto1-4.webp",
-                ],
-                // IDs de YouTube Shorts (parte después de /shorts/ en la URL)
-                videos: []
-            },
-            proyecto2: {
-                nombre: "Cliente 2",
-                desc: "Desarrollo de campañas publicitarias en redes sociales con enfoque en engagement y conversión de audiencia objetivo.",
+                nombre: "Grupo Bapa",
+                desc: "Gestionamos las cuentas de Facebook, Instagram y Tiktok del Grupo Bapa, para continuar posicionar la marca e incrementar sus ventas a través de contenido visual atractivo y estrategias de interacción con la comunidad online.",
                 imgs: [
                     "./img/redesSociales/proyecto2/proyecto2-1.webp",
                     "./img/redesSociales/proyecto2/proyecto2-2.webp",
@@ -190,22 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     "sy5s0U08lPY",
                 ]
             },
-            proyecto3: {
-                nombre: "Cliente 3",
-                desc: "Estrategia de contenido visual y community management para fortalecer la identidad de marca en plataformas digitales.",
-                imgs: [
-                    "./img/redesSociales/proyecto3/proyecto3-1.webp",
-                    "./img/redesSociales/proyecto3/proyecto3-2.webp",
-                    "./img/redesSociales/proyecto3/proyecto3-3.webp",
-                    "./img/redesSociales/proyecto3/proyecto3-4.webp",
-                ],
-                videos: [
-                    "WZmUABtlEr4",
-                ]
-            },
-            proyecto4: {
-                nombre: "Cliente 4",
-                desc: "Planificación y ejecución de estrategia digital integral: gestión de comunidad, contenido de marca y análisis de métricas para maximizar el alcance orgánico.",
+            proyecto2: {
+                nombre: "Enprotech",
+                desc: "Gestionamos las cuentas de Facebook, Instagram, Tiktok y LinkedIn de Enprotech, para consolidad su posicionamiento y ventas a nivel nacional e internacional. ",
                 imgs: [
                     "./img/redesSociales/proyecto4/proyecto4-1.webp",
                     "./img/redesSociales/proyecto4/proyecto4-2.webp",
@@ -216,7 +191,47 @@ document.addEventListener('DOMContentLoaded', function() {
                     "QgN12LDq8Qc",
                     "ycP9dZzCP2E",
                 ]
-            }
+            },
+            proyecto4: {
+                nombre: "El Tio Poncho",
+                desc: "Gestionamos tanto campañas de promocion digital, asi como contenido en la cuenta de Facebook para lograr posicionar la marca e incrementar sus ventas.",
+                imgs: [
+                    "./img/redesSociales/proyecto3/proyecto3-1.webp",
+                    "./img/redesSociales/proyecto3/proyecto3-2.webp",
+                    "./img/redesSociales/proyecto3/proyecto3-3.webp",
+                    "./img/redesSociales/proyecto3/proyecto3-4.webp",
+                ],
+                videos: [
+                    "WZmUABtlEr4",
+                    "3mJYyKmcQqE",
+                ]
+            },
+            proyecto5: {
+                nombre: "El Cielo Dental",
+                desc: "Gestionamos las cuentas de Facebook, Instagram y Tiktok de El Cielo Dental, para posicionar la marca a nivel nacional.",
+                imgs: [
+                    "./img/redesSociales/proyecto5/proyecto5-1.webp",
+                    "./img/redesSociales/proyecto5/proyecto5-2.webp",
+                    "./img/redesSociales/proyecto5/proyecto5-3.webp",
+                    "./img/redesSociales/proyecto5/proyecto5-4.webp",
+                ],
+                videos: [
+                    "j0IO_CCWb7E",
+                    "LJkPJWhbcHc"
+                ]
+            },
+            proyecto3: {
+                nombre: "UPAEP Fundation",
+                desc: "Creamos el concepto grafico y gestionamos campañas de promocion digital, y el contenido en la cuenta de Facebook para lograr donativos en Estados Unidos.",
+                imgs: [
+                    "./img/redesSociales/proyecto1/proyecto1-1.webp",
+                    "./img/redesSociales/proyecto1/proyecto1-2.webp",
+                    "./img/redesSociales/proyecto1/proyecto1-3.webp",
+                    "./img/redesSociales/proyecto1/proyecto1-4.webp",
+                ],
+                // IDs de YouTube Shorts (parte después de /shorts/ en la URL)
+                videos: []
+            },
         };
 
         const redesFolders = document.querySelectorAll('.cliente-card');
@@ -228,12 +243,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const redesVideos = document.getElementById('redes-project-videos');
         const redesCloseBtn = redesPanel ? redesPanel.querySelector('.redes-project__close') : null;
 
+        function highlightSocialMedia(text) {
+            return text.replace(/(Facebook|Instagram|Tiktok|LinkedIn)/gi, '<span class="social-highlight">$1</span>');
+        }
+
         function openRedesProject(projectKey) {
             const project = redesProyectos[projectKey];
             if (!project) return;
 
             if (redesTitle) redesTitle.textContent = project.nombre;
-            redesDesc.textContent = project.desc;
+            redesDesc.innerHTML = highlightSocialMedia(project.desc);
 
             // Galería de imágenes (2 columnas)
             redesGallery.innerHTML = '';
