@@ -542,9 +542,9 @@
         });
 
         /* ── Llamada a la acción ── */
-        checkPage(28);
+        checkPage(38);
         doc.setFillColor(accent[0], accent[1], accent[2]);
-        doc.roundedRect(margin, y, contentW, 22, 3, 3, 'F');
+        doc.roundedRect(margin, y, contentW, 32, 3, 3, 'F');
 
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(11);
@@ -554,7 +554,12 @@
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(9);
         doc.text('Envi\u00e1nos este documento y nos ponemos en contacto para hacerte una cotizaci\u00f3n personalizada.', pageW / 2, y + 14, { align: 'center' });
-        y += 28;
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.text('\u2709  contacto@rgmarketing.com', pageW / 2 - 2, y + 22, { align: 'right' });
+        doc.text('\ud83d\udcf1  WhatsApp: +52 222 446 7947', pageW / 2 + 2, y + 22, { align: 'left' });
+        y += 38;
 
         /* ── Footer ── */
         checkPage(15);
