@@ -4,6 +4,15 @@ console.log("Hola Mundo");
 const ndpLogosToggle = document.getElementById('ndpLogosToggle');
 const ndpLogosGrid   = document.getElementById('ndpLogosGrid');
 
+/* ── Click-to-flip en móvil (sin hover) ───── */
+if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.ndp-logo-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('is-flipped');
+        });
+    });
+}
+
 if (ndpLogosToggle && ndpLogosGrid) {
     ndpLogosToggle.addEventListener('click', () => {
         const isOpen = ndpLogosGrid.classList.toggle('is-open');

@@ -198,6 +198,66 @@
         </div>
     </footer>
 
+    <!-- Script del formulario de contacto -->
+    <script>
+        (function () {
+            var form = document.getElementById('contactForm');
+            var btn = form.querySelector('.btn-submit');
+            var notification = document.createElement('div');
+            notification.className = 'form-notification';
+            form.appendChild(notification);
+
+            function showNotification(type, message) {
+                notification.className = 'form-notification ' + type + ' visible';
+                notification.textContent = message;
+            }
+
+            function hideNotification() {
+                notification.className = 'form-notification';
+                notification.textContent = '';
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                hideNotification();
+
+                var data = {
+                    nombre: form.nombre.value.trim(),
+                    email: form.email.value.trim(),
+                    telefono: form.telefono.value.trim(),
+                    servicio: form.servicio.value,
+                    mensaje: form.mensaje.value.trim()
+                };
+
+                var originalText = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Enviando...';
+
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    .then(function (res) { return res.json(); })
+                    .then(function (json) {
+                        if (json.success) {
+                            showNotification('success', '¡Mensaje enviado! Te contactaremos pronto.');
+                            form.reset();
+                        } else {
+                            showNotification('error', json.error || 'Hubo un error al enviar tu mensaje. Intenta de nuevo.');
+                        }
+                    })
+                    .catch(function () {
+                        showNotification('error', 'No se pudo conectar con el servidor. Verifica tu conexión e intenta de nuevo.');
+                    })
+                    .finally(function () {
+                        btn.disabled = false;
+                        btn.textContent = originalText;
+                    });
+            });
+        })();
+    </script>
+
     <!-- Script del menú -->
     <script>
         const menuBtn = document.getElementById('menuBtn');

@@ -2054,7 +2054,16 @@ h3 {
     transition: transform 0.4s linear;
 }
 
-.ndp-logo-card:hover .ndp-logo-card__front {
+/* Desktop: hover reveal */
+@media (hover: hover) {
+    .ndp-logo-card:hover .ndp-logo-card__front {
+        transform: translateY(-100%);
+        transition: transform 0.4s linear;
+    }
+}
+
+/* Mobile: click reveal */
+.ndp-logo-card.is-flipped .ndp-logo-card__front {
     transform: translateY(-100%);
     transition: transform 0.4s linear;
 }
