@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     "./img/redesSociales/proyecto2/proyecto2-8.webp",
                 ],
                 videos: [
-                    "Mv_exXyVVtM",
-                    "sy5s0U08lPY",
+                    "bY1YNP71Bpk",
+                    "8EPvBRgBKgM",
                 ]
             },
             proyecto2: {
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ],
                 videos: [
                     "QgN12LDq8Qc",
-                    "ycP9dZzCP2E",
+                    "giSV40XhjZA",
                 ]
             },
             proyecto4: {
